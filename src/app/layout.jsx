@@ -33,7 +33,7 @@ const tall = Oswald({
 });
 
 export const metadata = {
-  title: "Rhon's Burger • Bite into Better",
+  title: "ignite soles • your sole identity",
   description:
     "Satisfy your cravings with Rhon's Burger. Explore a menu of burgers, fries, hotdogs, and more, then place your order and enjoy your favorites delivered straight to your door.",
 

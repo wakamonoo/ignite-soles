@@ -23,7 +23,7 @@ export default function Footer() {
     <div className="w-full bg-second p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32">
       <div className="flex flex-col md:flex-row items-start md:justify-between">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-12 md:px-8">
-          <div className="flex flex-col items-start sm:items-center">
+          <div className="flex flex-col sm:items-center">
             <button
               onClick={handleHomeClick}
               className="cursor-pointer w-32 h-auto"
