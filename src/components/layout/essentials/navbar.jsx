@@ -52,8 +52,8 @@ export default function Navbar() {
         >
           <RegularButton>
             <BsMessenger className="text-base shrink-0 text-normal transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)" />
-            <p className="text-sm uppercase text-normal font-tall transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
-              Inquire on messenger
+            <p className="text-sm uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
+              Inquire Now
             </p>
           </RegularButton>
         </a>

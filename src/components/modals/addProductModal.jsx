@@ -212,10 +212,10 @@ export default function AddProductModal({ setShowAddProductModal }) {
                   <option value="" disabled>
                     Select Condition
                   </option>
-                  <option value="preloved" className="bg-accent text-normal">
+                  <option value="pre-loved" className="bg-accent text-normal">
                     Pre-Loved
                   </option>
-                  <option value="brandnew" className="bg-accent text-normal">
+                  <option value="brand-new" className="bg-accent text-normal">
                     Brand New
                   </option>
                 </select>

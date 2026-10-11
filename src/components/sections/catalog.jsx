@@ -12,7 +12,8 @@ import AddToTrayModal from "../modals/productModal";
 import ProductModal from "../modals/productModal";
 import { TbShoe } from "react-icons/tb";
 import RegularButton from "../buttons/regularButton";
-import { BsMessenger } from "react-icons/bs";
+import { BsDot, BsMessenger } from "react-icons/bs";
+import { GoDot, GoDotFill } from "react-icons/go";
 
 const categories = [
   { name: "All", value: "all" },
@@ -22,7 +23,7 @@ const categories = [
   { name: "slides", value: "slides" },
 ];
 
-export default function Menu() {
+export default function Catalog() {
   const { products } = useContext(ProductContext);
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -78,21 +79,31 @@ export default function Menu() {
                   />
                 </div>
                 <div className="flex flex-col w-full p-2">
-                  <h4 className="text-base font-tall uppercase">
+                  <h4 className="text-base font-tall uppercase leading-tight">
                     {product.name}
                   </h4>
-                  <p className="text-lg text-normal font-tall py-2 font-bold font-alt">
-                    ₱ {product.price}
-                  </p>
-                  <p className="text-sm text-muted">Size: {product.size}</p>
-                  <p className="text-sm text-muted">
+                  <div className="flex justify-between items-center">
+                    <p className="text-lg text-normal font-heading font-bold">
+                      ₱ {Number(product.price).toLocaleString("en-PH")}
+                    </p>
+                    <div className="flex flex-col items-center justify-center w-12 h-12 p-2 rounded-lg border border-second">
+                      <span className="text-xs text-normal">Size</span>
+                      <span className="text-sm font-bold text-panel">
+                        {product.size}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mt-2 flex items-center">
+                    <GoDotFill className="text-base text-accent" />
+                    <p className="text-xs text-muted uppercase">
                     Condition: {product.condition}
                   </p>
-                  <div className="mt-4">
+                  </div>
+                  <div className="mt-2">
                     <RegularButton>
                       <BsMessenger className="text-base shrink-0 text-normal transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)" />
-                      <p className="text-sm uppercase text-normal font-tall transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
-                        Inquire on messenger
+                      <p className="text-sm uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
+                        Message Us
                       </p>
                     </RegularButton>
                   </div>

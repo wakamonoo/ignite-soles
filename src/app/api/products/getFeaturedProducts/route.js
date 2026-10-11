@@ -26,7 +26,7 @@ export async function GET(request) {
     const startIndex = dayNumber % products.length;
 
     const featuredProducts = Array.from(
-      { length: Math.min(4, products.length) },
+      { length: Math.min(2, products.length) },
       (_, i) => products[(startIndex + i) % products.length],
     );
 

@@ -102,11 +102,11 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-2">
+          <div className="flex flex-col items-center gap-2">
             <ActionButton>
               <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
-              <p className="text-sm uppercase text-accent font-tall transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)">
-                Inquire on messenger
+              <p className="text-sm uppercase text-accent font-heading transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)">
+                Inquire Now
               </p>
             </ActionButton>
 

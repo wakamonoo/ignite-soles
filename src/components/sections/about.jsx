@@ -135,7 +135,7 @@ export default function About() {
 
             <div className="flex flex-col">
               <p className="font-tall text-lg uppercase leading-tight">
-                Straightforwar Deals
+                Fair Deals
               </p>
               <p className="text-base text-muted leading-tight">
                 No hidden fees. Just solid deals.

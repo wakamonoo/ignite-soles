@@ -1,5 +1,5 @@
 import {
-  Bowlby_One_SC,
+  Fugaz_One,
   Nunito_Sans,
   Lilita_One,
   Oswald,
@@ -10,7 +10,7 @@ import { ProductProvider } from "@/context/productContext";
 import { NavigationProvider } from "@/context/navigationContext";
 import { LoaderProvider } from "@/context/loaderContext";
 
-const heading = Bowlby_One_SC({
+const heading = Fugaz_One({
   variable: "--heading-family",
   weight: "400",
   subsets: ["latin"],
