@@ -1,11 +1,20 @@
+"use client";
 import Navbar from "@/components/layout/essentials/navbar";
 import About from "@/components/sections/about";
 import Featured from "@/components/sections/featured";
 import Footer from "@/components/sections/footer";
 import Menu from "@/components/sections/menu";
 import Hero from "@/components/sections/hero";
+import { useContext, useEffect } from "react";
+import { LoaderContext } from "@/context/loaderContext";
 
 export default function Page() {
+  const { setIsLoading } = useContext(LoaderContext);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
+  
   return (
     <div>
       <Navbar />

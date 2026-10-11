@@ -2,11 +2,14 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import MenuButton from "../buttons/menuButton";
+import { NavigationContext } from "@/context/navigationContext";
 
 export default function MenuOptions({
   setShowMenuOptions,
-  menuOptionsMenuButtonRef,
+  menuOptionsButtonRef,
 }) {
+  const { handleFeaturedClick, handleAllItemsClick, handleAboutClick } =
+    useContext(NavigationContext);
   const divRef = useRef(null);
   const router = useRouter();
 
@@ -15,8 +18,8 @@ export default function MenuOptions({
       if (
         divRef.current &&
         !divRef.current.contains(e.target) &&
-        menuOptionsMenuButtonRef.current &&
-        !menuOptionsMenuButtonRef.current.contains(e.target)
+        menuOptionsButtonRef.current &&
+        !menuOptionsButtonRef.current.contains(e.target)
       ) {
         setShowMenuOptions(false);
       }
@@ -25,7 +28,7 @@ export default function MenuOptions({
     return () => {
       document.removeEventListener("pointerdown", handleOutClick);
     };
-  }, [setShowMenuOptions, menuOptionsMenuButtonRef]);
+  }, [setShowMenuOptions, menuOptionsButtonRef]);
 
   return (
     <div
@@ -33,17 +36,17 @@ export default function MenuOptions({
       className="absolute top-14 right-0 h-fit w-[50vw] bg-panel rounded-lg shadow-2xl p-2 z-100"
     >
       <div className="flex flex-col">
-        <MenuButton className="cursor-pointer group">
+        <MenuButton onClick={handleFeaturedClick}>
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
             Featured
           </p>
         </MenuButton>
-        <MenuButton className="cursor-pointer group">
+        <MenuButton onClick={handleAllItemsClick}>
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
             All Shoes
           </p>
         </MenuButton>
-        <MenuButton className="cursor-pointer group">
+        <MenuButton onClick={handleAboutClick}>
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
             About
           </p>

@@ -25,7 +25,7 @@ export default function Featured() {
   }, []);
 
   return (
-    <div className="w-full mt-16">
+    <div id="featured" className="w-full mt-16">
       <div className="flex items-center gap-2">
         <GiFlamedLeaf className="text-lg" />
         <h2 className="text-lg uppercase">Featured</h2>

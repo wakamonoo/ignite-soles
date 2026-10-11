@@ -7,6 +7,8 @@ import {
 import "./globals.css";
 import { UserProvider } from "@/context/userContext";
 import { ProductProvider } from "@/context/productContext";
+import { NavigationProvider } from "@/context/navigationContext";
+import { LoaderProvider } from "@/context/loaderContext";
 
 const heading = Bowlby_One_SC({
   variable: "--heading-family",
@@ -71,7 +73,11 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <UserProvider>
-          <ProductProvider>{children}</ProductProvider>
+          <ProductProvider>
+            <LoaderProvider>
+              <NavigationProvider>{children}</NavigationProvider>
+            </LoaderProvider>
+          </ProductProvider>
         </UserProvider>
       </body>
     </html>

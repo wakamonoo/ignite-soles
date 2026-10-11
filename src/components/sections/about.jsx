@@ -79,7 +79,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="w-full mt-16 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
+    <div id="about" className="w-full mt-16 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
       <div className="flex items-center gap-2">
         <BsLightningFill className="text-lg" />
         <h2 className="text-lg uppercase">Why ignite-soles</h2>

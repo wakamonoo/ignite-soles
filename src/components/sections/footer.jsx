@@ -7,36 +7,53 @@ import { BiBookAdd, BiChevronRight, BiRestaurant } from "react-icons/bi";
 import { FaFacebook, FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import RegularButton from "../buttons/regularButton";
 import { BsMessenger } from "react-icons/bs";
+import ActionButton from "../buttons/actionButton";
+import { useContext } from "react";
+import { NavigationContext } from "@/context/navigationContext";
 
 export default function Footer() {
+  const {
+    handleHomeClick,
+    handleFeaturedClick,
+    handleAllItemsClick,
+    handleAboutClick,
+  } = useContext(NavigationContext);
+
   return (
     <div className="w-full bg-second p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32">
       <div className="flex flex-col md:flex-row items-start md:justify-between">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-12 md:px-8">
           <div className="flex flex-col items-start sm:items-center">
-            <div className="w-32 h-auto">
+            <button
+              onClick={handleHomeClick}
+              className="cursor-pointer w-32 h-auto"
+            >
               <Image
                 src={Logo}
                 alt="logo"
                 className="w-full h-full object-contain"
               />
-            </div>
-            <p className="text-sm text-neutral">
-              Your Sole Identity.
-            </p>
+            </button>
+            <p className="text-sm text-neutral">Your Sole Identity.</p>
           </div>
           <div className="flex flex-wrap gap-y-2 gap-x-4">
-            <button className="cursor-pointer group">
+            <button
+              onClick={handleFeaturedClick}
+              className="cursor-pointer group"
+            >
               <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
                 Featured
               </p>
             </button>
-            <button className="cursor-pointer group">
+            <button
+              onClick={handleAllItemsClick}
+              className="cursor-pointer group"
+            >
               <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
                 All Shoes
               </p>
             </button>
-            <button className="cursor-pointer group">
+            <button onClick={handleAboutClick} className="cursor-pointer group">
               <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
                 About
               </p>
@@ -86,12 +103,12 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col items-start gap-2">
-            <RegularButton>
-              <BsMessenger className="text-base shrink-0 text-normal transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)" />
-              <p className="text-sm uppercase text-normal font-tall transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
+            <ActionButton>
+              <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
+              <p className="text-sm uppercase text-accent font-tall transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)">
                 Inquire on messenger
               </p>
-            </RegularButton>
+            </ActionButton>
 
             <div className="flex gap-2">
               <button className="cursor-pointer w-8 h-8 flex items-center justify-center bg-neutral transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">

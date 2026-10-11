@@ -3,35 +3,42 @@ import Image from "next/image";
 import Logo from "@/assets/main_logo.png";
 import { LuShoppingBasket } from "react-icons/lu";
 import { TbBurger } from "react-icons/tb";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import MenuOptions from "@/components/options/menuOptions";
 import ActionButton from "@/components/buttons/actionButton";
 import { BsMessenger } from "react-icons/bs";
 import RegularButton from "@/components/buttons/regularButton";
+import { NavigationContext } from "@/context/navigationContext";
 
 export default function Navbar() {
   const [showMenuOptions, setShowMenuOptions] = useState(false);
+  const {
+    handleHomeClick,
+    handleFeaturedClick,
+    handleAllItemsClick,
+    handleAboutClick,
+  } = useContext(NavigationContext);
   const menuOptionsButtonRef = useRef(null);
 
   return (
     <div className="fixed z-100 w-full flex justify-between items-center p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32 bg-panel">
-      <div className="w-28 h-auto">
+      <button onClick={handleHomeClick} className="cursor-pointer w-28 h-auto">
         <Image src={Logo} alt="logo" className="w-full h-full object-contain" />
-      </div>
+      </button>
 
       <div className="hidden sm:flex gap-8">
-        <button className="cursor-pointer group">
+        <button onClick={handleFeaturedClick} className="cursor-pointer group">
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
             Featured
           </p>
         </button>
-        <button className="cursor-pointer group">
+        <button onClick={handleAllItemsClick} className="cursor-pointer group">
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
             All Shoes
           </p>
         </button>
-        <button className="cursor-pointer group">
+        <button onClick={handleAboutClick} className="cursor-pointer group">
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
             About
           </p>

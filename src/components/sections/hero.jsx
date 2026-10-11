@@ -10,10 +10,10 @@ export default function Hero() {
         <p className="text-base font-tall uppercase">
           Find Your Stride. Define Your Style
         </p>
-        <h1 className="text-6xl font-bold uppercase">Your Sole Identity.</h1>
+        <h1 className="text-6xl font-black uppercase leading-none">Your Sole Identity.</h1>
         <p className="text-base leading-tight">
-          Everyday essentials. Standout pairs. Great for a store featuring
-          different sneaker styles.
+          Discover your next favorite pair, express your style, and make every
+          step count with footwear that fits the way you move.
         </p>
         <div className="mt-4">
           <RegularButton>

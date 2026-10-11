@@ -34,7 +34,10 @@ export default function Menu() {
 
   return (
     <>
-      <div className="w-full bg-second mt-16 p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32">
+      <div
+        id="all"
+        className="w-full bg-second mt-16 p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32"
+      >
         <div className="flex items-center gap-2">
           <TbShoe className="text-lg text-neutral" />
           <h2 className="text-lg uppercase text-neutral">All Shoes</h2>
@@ -63,7 +66,10 @@ export default function Menu() {
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
           {filteredProducts.map((product) => {
             return (
-              <div key={product.productId} className="flex flex-col gap-2 items-center bg-brand rounded-lg shadow-lg overflow-hidden">
+              <div
+                key={product.productId}
+                className="flex flex-col gap-2 items-center bg-brand rounded-lg shadow-lg overflow-hidden"
+              >
                 <div className="w-full aspect-square">
                   <img
                     src={product.photo}
@@ -79,7 +85,9 @@ export default function Menu() {
                     ₱ {product.price}
                   </p>
                   <p className="text-sm text-muted">Size: {product.size}</p>
-                  <p className="text-sm text-muted">Condition: {product.condition}</p>
+                  <p className="text-sm text-muted">
+                    Condition: {product.condition}
+                  </p>
                   <div className="mt-4">
                     <RegularButton>
                       <BsMessenger className="text-base shrink-0 text-normal transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)" />
