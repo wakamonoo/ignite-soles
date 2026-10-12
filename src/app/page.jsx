@@ -18,8 +18,8 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <div className="mt-20 md:mt-0 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
-        <Hero />
+      <Hero />
+      <div className="p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
         <Featured />
       </div>
       <Catalog />

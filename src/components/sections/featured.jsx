@@ -40,15 +40,15 @@ export default function Featured() {
               key={product.productId}
               className="flex gap-2 items-stretch bg-second rounded-lg shadow-lg overflow-hidden"
             >
-              <div className="w-full h-auto">
+              <div className="flex w-[40%] min-w-0 shrink-0 items-center justify-center">
                 <img
                   src={product.photo}
                   about="burger"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col justify-center w-full p-2">
-                <h4 className="text-base font-heading text-neutral uppercase leading-tight">
+              <div className="flex min-w-0 flex-1 flex-col justify-center overflow-hidden w-full p-2">
+                <h4 className="truncate text-base font-heading text-neutral uppercase leading-tight">
                   {product.name}
                 </h4>
                 <div className="mt-2 flex flex-col gap-0.5">
@@ -57,10 +57,10 @@ export default function Featured() {
                     ₱ {Number(product.price).toLocaleString("en-PH")}
                   </p>
                 </div>
-                <div className="mt-2 flex items-center divide-x divide-(--color-accent)">
-                  <div className="flex items-center gap-2 pr-4">
+                <div className="mt-2 min-w-0 flex items-center divide-x divide-(--color-accent)">
+                  <div className="flex items-center gap-2 pr-2">
                     <FaBox className="text-2xl shrink-0 text-neutral" />
-                    <div className="flex flex-col items-startr">
+                    <div className="flex flex-col">
                       <span className="text-xs text-neutral uppercase leading-none">
                         Size
                       </span>
@@ -69,19 +69,19 @@ export default function Featured() {
                       </span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 pl-4">
+                  <div className="flex min-w-0 items-center gap-2 pl-2">
                     <BiCheckCircle className="text-2xl shrink-0 text-neutral" />
-                    <div className="flex flex-col items-start">
+                    <div className="flex min-w-0 flex-col">
                       <span className="text-xs text-neutral uppercase leading-none">
                         Condition
                       </span>
-                      <span className="text-sm font-bold text-accent uppercase">
+                      <span className="text-sm font-bold text-accent uppercase truncate">
                         {product.condition}
                       </span>
                     </div>
                   </div>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 min-w-0">
                   <ActionButton>
                     <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
                     <p className="text-sm uppercase text-accent font-tall transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal) whitespace-nowrap">

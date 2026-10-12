@@ -22,24 +22,24 @@ export default function Navbar() {
   const menuOptionsButtonRef = useRef(null);
 
   return (
-    <div className="fixed z-100 w-full flex justify-between items-center p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32 bg-panel">
+    <div className="fixed z-100 w-full flex justify-between items-center p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32 bg-second">
       <button onClick={handleHomeClick} className="cursor-pointer w-28 h-auto">
         <Image src={Logo} alt="logo" className="w-full h-full object-contain" />
       </button>
 
       <div className="hidden sm:flex gap-8">
         <button onClick={handleFeaturedClick} className="cursor-pointer group">
-          <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
+          <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
             Featured
           </p>
         </button>
         <button onClick={handleAllItemsClick} className="cursor-pointer group">
-          <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
+          <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
             All Shoes
           </p>
         </button>
         <button onClick={handleAboutClick} className="cursor-pointer group">
-          <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
+          <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
             About
           </p>
         </button>
@@ -50,12 +50,12 @@ export default function Navbar() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <RegularButton>
-            <BsMessenger className="text-base shrink-0 text-normal transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)" />
-            <p className="text-sm uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
+          <ActionButton>
+            <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
+            <p className="text-sm uppercase text-accent font-heading transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)">
               Inquire Now
             </p>
-          </RegularButton>
+          </ActionButton>
         </a>
 
         <div className="relative block sm:hidden">
