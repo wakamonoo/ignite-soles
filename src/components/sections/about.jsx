@@ -146,12 +146,12 @@ export default function About() {
       <div className="mt-10 py-8">
         <div className="relative h-84 w-full rounded-2xl overflow-hidden">
           <div ref={mapRef} className="absolute inset-0 z-0" />
-          <div className="absolute bottom-0 left-0 right-0 flex bg-neutral rounded-2xl shadow-2xl gap-2 divide-x divide-(--color-accent) p-2">
-            <div className="mt-4 w-1/2 px-2">
-              <h2 className="text-lg uppercase leading-tight">
+          <div className="absolute bottom-0 left-0 right-0 flex bg-stone rounded-2xl shadow-2xl gap-2 divide-x divide-(--color-panel) p-2">
+            <div className="flex flex-col items-end mt-4 w-1/2 px-2">
+              <h2 className="text-lg text-right uppercase leading-tight">
                 From every step to every stride.
               </h2>
-              <p className="text-base text-normal leading-tight">
+              <p className="text-base text-right text-normal leading-tight">
                 Shoes made to move. Style made to stand out.
               </p>
             </div>

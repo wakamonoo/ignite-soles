@@ -2,14 +2,6 @@
 import Shoe from "@/assets/shoe.jpg";
 import { ProductContext } from "@/context/productContext";
 import { useContext, useState } from "react";
-import { BiChevronRight, BiDrink, BiGridAlt } from "react-icons/bi";
-import { CiBurger, CiFries } from "react-icons/ci";
-import { GiHotDog } from "react-icons/gi";
-import { IoAdd } from "react-icons/io5";
-import { LuSoup, LuUtensils } from "react-icons/lu";
-import { RiDrinks2Fill, RiDrinks2Line } from "react-icons/ri";
-import AddToTrayModal from "../modals/productModal";
-import ProductModal from "../modals/productModal";
 import { TbShoe } from "react-icons/tb";
 import RegularButton from "../buttons/regularButton";
 import { BsDot, BsMessenger } from "react-icons/bs";
@@ -26,7 +18,6 @@ const categories = [
 export default function Catalog() {
   const { products } = useContext(ProductContext);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredProducts =
     activeCategory === "all"
@@ -34,7 +25,7 @@ export default function Catalog() {
       : products.filter((product) => product.category === activeCategory);
 
   return (
-    <>
+   
       <div
         id="all"
         className="w-full bg-second mt-16 p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32"
@@ -52,10 +43,10 @@ export default function Catalog() {
                 <button
                   key={category.value}
                   onClick={() => setActiveCategory(category.value)}
-                  className={`cursor-pointer flex items-center justify-center gap-0.5 p-2 rounded-full transition-all duration-200 group hover:border-0 active:border-0 hover:bg-(--color-accent) active:bg-(--color-accent) ${isActive ? "bg-accent" : "border border-(--color-neutral)"}`}
+                  className={`cursor-pointer flex items-center justify-center gap-0.5 p-2 rounded-full transition-all duration-200 group border hover:bg-(--color-accent) active:bg-(--color-accent) ${isActive ? "bg-accent border-transparent" : "border-(--color-accent)"}`}
                 >
                   <span
-                    className={`text-base font-bold uppercase group-hover:text-(--color-neutral) group-active:text-(--color-neutral) ${isActive ? "text-normal" : "text-neutral"}`}
+                    className={`text-base font-bold uppercase group-hover:text-(--color-normal) group-active:text-(--color-normal) ${isActive ? "text-normal" : "text-accent"}`}
                   >
                     {category.name}
                   </span>
@@ -69,7 +60,7 @@ export default function Catalog() {
             return (
               <div
                 key={product.productId}
-                className="flex flex-col gap-2 items-center bg-brand rounded-lg shadow-lg overflow-hidden"
+                className="flex flex-col gap-2 items-center bg-stone rounded-lg shadow-lg overflow-hidden"
               >
                 <div className="w-full aspect-square">
                   <img
@@ -96,8 +87,8 @@ export default function Catalog() {
                   <div className="mt-2 flex items-center">
                     <GoDotFill className="text-base text-accent" />
                     <p className="text-xs text-muted uppercase">
-                    Condition: {product.condition}
-                  </p>
+                      Condition: {product.condition}
+                    </p>
                   </div>
                   <div className="mt-2">
                     <RegularButton>
@@ -113,12 +104,5 @@ export default function Catalog() {
           })}
         </div>
       </div>
-      {selectedProduct && (
-        <ProductModal
-          product={selectedProduct}
-          setSelectedProduct={setSelectedProduct}
-        />
-      )}
-    </>
   );
 }

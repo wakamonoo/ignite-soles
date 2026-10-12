@@ -21,10 +21,9 @@
     --color-text: #241c24;
     --color-panel: #ff4fa3;
     --color-secondary: #111111;
-    --color-muted: #4f382f;
-    --color-border: #b17159;
     --color-neutral: #ffffff;
-    --color-brown: #603420;
+    --color-stone: #e8e3df;
+    --color-gray: #a6a6a6;
 
     /* ————————————————————————————————————
        supporting brand colors
@@ -116,32 +115,12 @@
     background-color: var(--color-accent);
   }
 
-  .bg-muted {
-    background-color: var(--color-muted);
+  .bg-stone {
+    background-color: var(--color-stone);
   }
 
-  .bg-mustard {
-    background-color: var(--color-mustard);
-  }
-
-  .bg-pickle {
-    background-color: var(--color-pickle);
-  }
-
-  .bg-ketchup-dark {
-    background-color: var(--color-ketchup-dark);
-  }
-
-  .bg-grill {
-    background-color: var(--color-grill);
-  }
-
-  .bg-neutral {
-    background-color: var(--color-neutral);
-  }
-
-  .bg-brown {
-    background-color: var(--color-brown);
+  .bg-gray {
+    background-color: var(--color-gray);
   }
 
   /* ————————————————————————————————————

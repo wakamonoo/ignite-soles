@@ -111,13 +111,13 @@ export default function Footer() {
             </ActionButton>
 
             <div className="flex gap-2">
-              <button className="cursor-pointer w-8 h-8 flex items-center justify-center bg-neutral transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">
+              <button className="cursor-pointer w-8 h-8 flex items-center justify-center transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">
                 <FaFacebookF className="text-base text-accent transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral) shrink-0" />
               </button>
-              <button className="cursor-pointer w-8 h-8 flex items-center justify-center bg-neutral transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">
+              <button className="cursor-pointer w-8 h-8 flex items-center justify-center transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">
                 <FaInstagram className="text-base text-accent transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral) shrink-0" />
               </button>
-              <button className="cursor-pointer w-8 h-8 flex items-center justify-center bg-neutral transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">
+              <button className="cursor-pointer w-8 h-8 flex items-center justify-center transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full">
                 <FaTiktok className="text-base text-accent transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral) shrink-0" />
               </button>
             </div>

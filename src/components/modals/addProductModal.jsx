@@ -1,11 +1,13 @@
 import { MdClose } from "react-icons/md";
 import { RiImage2Fill } from "react-icons/ri";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import ActionButton from "../buttons/actionButton";
 import Swal from "sweetalert2";
 import RegularButton from "../buttons/regularButton";
+import { LoaderContext } from "@/context/loaderContext";
 
 export default function AddProductModal({ setShowAddProductModal }) {
+  const { setIsLoading } = useContext(LoaderContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [size, setSize] = useState(0);
@@ -14,6 +16,7 @@ export default function AddProductModal({ setShowAddProductModal }) {
   const [file, setFile] = useState(null);
 
   const AddItem = async () => {
+    setIsLoading(true);
     if (
       !name.trim() ||
       price === "" ||
@@ -134,6 +137,8 @@ export default function AddProductModal({ setShowAddProductModal }) {
           title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
         },
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -145,7 +150,7 @@ export default function AddProductModal({ setShowAddProductModal }) {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className="relative flex flex-col w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-2xl border border-(--color-accent)/10 bg-second shadow-2xl"
+          className="relative flex flex-col w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-2xl border border-(--color-accent)/10 bg-panel shadow-2xl"
         >
           <div className="flex items-center justify-between border-b border-(--color-accent)/10 p-4">
             <h1 className="text-base font-semibold text-neutral font-tall uppercase">
@@ -156,15 +161,15 @@ export default function AddProductModal({ setShowAddProductModal }) {
                 e.stopPropagation();
                 setShowAddProductModal(false);
               }}
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-all duration-200 group hover:bg-(--color-panel) shrink-0"
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-all duration-200 group hover:bg-(--color-secondary) active:bg-(--color-secondary) shrink-0"
             >
               <MdClose className="text-xl text-neutral transition-all duration-20 group-hover:text-(--color-accent)" />
             </button>
           </div>
-          <div className="px-4 overflow-y-auto custom-scroll">
+          <div className="p-4 overflow-y-auto custom-scroll bg-stone rounded-t-2xl">
             <div className="flex flex-col gap-4">
               <div className="py-2 flex flex-col flex-1">
-                <h4 className="text-base whitespace-nowrap text-neutral font-tall uppercase">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
                   Product Name
                 </h4>
                 <input
@@ -172,12 +177,12 @@ export default function AddProductModal({ setShowAddProductModal }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="eg. Jordan 1"
-                  className="bg-accent p-2 rounded w-full outline-none text-base text-normal"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 />
               </div>
 
               <div className="py-2 flex flex-col flex-1">
-                <h4 className="text-base whitespace-nowrap text-neutral font-tall uppercase">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
                   Price
                 </h4>
                 <input
@@ -185,11 +190,11 @@ export default function AddProductModal({ setShowAddProductModal }) {
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                   placeholder="eg. 43"
-                  className="bg-accent p-2 rounded w-full outline-none text-base text-normal"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 />
               </div>
               <div className="py-2 flex flex-col flex-1">
-                <h4 className="text-base whitespace-nowrap text-neutral font-tall uppercase">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
                   Size
                 </h4>
                 <input
@@ -197,65 +202,73 @@ export default function AddProductModal({ setShowAddProductModal }) {
                   value={size}
                   onChange={(e) => setSize(e.target.value)}
                   placeholder="eg. 50"
-                  className="bg-accent p-2 rounded w-full outline-none text-base text-normal"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 />
               </div>
               <div className="py-2 flex flex-col flex-1">
-                <h4 className="text-base whitespace-nowrap text-neutral font-tall uppercase">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
                   Condition
                 </h4>
                 <select
                   value={condition}
                   onChange={(e) => setCondition(e.target.value)}
-                  className="bg-accent p-2 rounded w-full outline-none text-base text-normal"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 >
                   <option value="" disabled>
                     Select Condition
                   </option>
-                  <option value="pre-loved" className="bg-accent text-normal">
+                  <option value="pre-loved" className=" text-normal">
                     Pre-Loved
                   </option>
-                  <option value="brand-new" className="bg-accent text-normal">
+                  <option value="brand-new" className=" text-normal">
                     Brand New
                   </option>
                 </select>
               </div>
               <div className="py-2 flex flex-col flex-1">
-                <h4 className="text-base whitespace-nowrap text-neutral font-tall uppercase">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
                   Category
                 </h4>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="bg-accent p-2 rounded w-full outline-none text-base text-normal"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 >
                   <option value="" disabled>
                     Select Category
                   </option>
-                  <option value="sneakers" className="bg-accent text-normal">
+                  <option value="sneakers" className=" text-normal">
                     Sneakers
                   </option>
-                  <option value="sports" className="bg-accent text-normal">
+                  <option value="sports" className=" text-normal">
                     Sports
                   </option>
-                  <option value="casual" className="bg-accent text-normal">
+                  <option value="casual" className=" text-normal">
                     Casual
                   </option>
-                  <option value="sliders" className="bg-accent text-normal">
+                  <option value="sliders" className=" text-normal">
                     Sliders
                   </option>
                 </select>
               </div>
               <label
                 htmlFor="fileUpload"
-                className="w-full cursor-pointer flex gap-4 items-center justify-center p-4 border border-dashed border-(--color-accent)"
+                className="w-full cursor-pointer flex gap-4 items-center justify-center p-4 border border-dashed border-(--color-panel)"
               >
-                <RiImage2Fill className="text-4xl text-neutral shrink-0" />
+                {file ? (
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt="Replacement product photo"
+                    className="w-20 h-20 object-cover rounded-lg shrink-0"
+                  />
+                ) : (
+                  <RiImage2Fill className="text-4xl text-normal shrink-0" />
+                )}
                 <div className="flex flex-col justify-center items-start flex-1 w-0 min-w-0">
-                  <p className="text-base font-bold truncate w-full text-neutral">
+                  <p className="text-base font-bold truncate w-full text-normal">
                     {file ? file.name : "Add Photo"}
                   </p>
-                  <span className="text-xs text-neutral">
+                  <span className="text-xs text-normal">
                     (Maximum size of 50mb)
                   </span>
                 </div>
@@ -272,13 +285,13 @@ export default function AddProductModal({ setShowAddProductModal }) {
                 }}
               />
             </div>
-          </div>
-          <div className="ml-auto flex w-fit p-4">
-            <ActionButton onClick={AddItem}>
-              <p className="text-base uppercase font-semibold text-neutral transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal) whitespace-nowrap">
-                Add Item
-              </p>
-            </ActionButton>
+            <div className="mt-4 ml-auto flex w-fit">
+              <RegularButton onClick={AddItem}>
+                <p className="text-sm uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
+                  Add Item
+                </p>
+              </RegularButton>
+            </div>
           </div>
         </div>
       </div>

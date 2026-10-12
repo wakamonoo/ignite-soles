@@ -44,7 +44,7 @@ export const NavigationProvider = ({ children }) => {
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       setIsLoading(true);
-      router.push("/#featuredr");
+      router.push("/#featured");
     }
   };
 

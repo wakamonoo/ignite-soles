@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { LuLogOut } from "react-icons/lu";
 import ActionButton from "@/components/buttons/actionButton";
 import { useRouter } from "next/navigation";
+import RegularButton from "@/components/buttons/regularButton";
 
 export default function Login() {
   const { setShowSignInModal, isLogged, fetchUser } = useContext(UserContext);
@@ -72,7 +73,7 @@ export default function Login() {
       router.replace("/admin");
     } catch (err) {
       console.error("admin sign-in failed:", err);
-      
+
       Swal.fire({
         toast: true,
         position: "bottom-start",
@@ -94,22 +95,22 @@ export default function Login() {
   return (
     <div className="bg-brand w-full h-screen flex items-center justify-center p-2">
       <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-panel shadow-2xl">
-        <div className="flex items-center justify-center px-4">
-          <div className="w-1/2 h-auto shrink-0">
+        <div className="flex items-center justify-center p-4">
+          <div className="w-full h-auto shrink-0">
             <Image
               src={Logo}
-              alt="Rhon's Burger Logo"
+              alt="ignite soles"
               className="w-full h-full object-contain"
             />
           </div>
         </div>
         <div className="flex flex-col gap-2 items-center justify-center p-4">
-          <ActionButton onClick={handleSignIn}>
-            <p className="text-base font-semibold text-accent transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral)">
-              Sign in with Google
+          <RegularButton onClick={handleSignIn}>
+            <p className="text-sm uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
+              Sign in with google
             </p>
             <FcGoogle className="text-base shrink-0" />
-          </ActionButton>
+          </RegularButton>
         </div>
       </div>
     </div>
