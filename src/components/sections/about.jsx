@@ -18,14 +18,9 @@ export default function About() {
 
   const locations = [
     {
-      name: "Rhon's Burger - Main Branch",
-      latitude: 13.137023,
-      longitude: 123.292752,
-    },
-    {
-      name: "Rhon's Burger - Maramba Branch",
-      latitude: 13.1194196,
-      longitude: 123.293023,
+      name: "ignite soles",
+      latitude: 13.3004225,
+      longitude: 123.4376357,
     },
   ];
 
@@ -49,7 +44,7 @@ export default function About() {
 
       if (cancelled || !mapRef.current) return;
 
-      const map = L.map(mapRef.current).setView([13.137023, 123.292752], 10);
+      const map = L.map(mapRef.current).setView([13.3004225, 123.4376357], 10);
 
       leafletMapRef.current = map;
 
@@ -79,7 +74,10 @@ export default function About() {
   }, []);
 
   return (
-    <div id="about" className="w-full mt-16 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
+    <div
+      id="about"
+      className="w-full mt-16 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32"
+    >
       <div className="flex items-center gap-2">
         <BsLightningFill className="text-lg" />
         <h2 className="text-lg uppercase">Why ignite-soles</h2>
@@ -164,7 +162,7 @@ export default function About() {
                   <p className="text-base text-normal uppercase font-bold leading-tight">
                     Location
                   </p>
-                  <span className="text-sm text-muted">Rawis, Libon, Albay</span>
+                  <span className="text-sm text-muted">Libon, Albay</span>
                 </div>
               </div>
               <div className="flex items-start gap-2">
@@ -173,7 +171,7 @@ export default function About() {
                   <p className="text-base text-normal uppercase font-bold leading-tight">
                     Open Daily
                   </p>
-                  <span className="text-sm text-muted">10:00 AM - 10 PM</span>
+                  <span className="text-sm text-muted">7 Days a Week</span>
                 </div>
               </div>
             </div>

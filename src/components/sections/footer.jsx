@@ -34,7 +34,7 @@ export default function Footer() {
                 className="w-full h-full object-contain"
               />
             </button>
-            <p className="text-sm text-neutral">Your Sole Identity.</p>
+            <p className="text-sm text-neutral">Stay Unrivaled</p>
           </div>
           <div className="flex flex-wrap gap-y-2 gap-x-4">
             <button

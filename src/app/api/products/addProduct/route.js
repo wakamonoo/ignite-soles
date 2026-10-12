@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export async function POST(request) {
   try {
-    const { name, price, size, condition, category, url } = await request.json();
+    const { name, price, size, condition, category, url } =
+      await request.json();
 
     const client = await clientPromise;
     const mongodb = process.env.MONGODB;
