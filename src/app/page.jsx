@@ -18,13 +18,13 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <div className="p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
+      <div>
+        <Hero />
         <Featured />
+        <Catalog />
+        <About />
+        <Footer />
       </div>
-      <Catalog />
-      <About />
-      <Footer />
     </div>
   );
 }

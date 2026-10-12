@@ -10,7 +10,7 @@ export default function Hero() {
   const { handleAllItemsClick } = useContext(NavigationContext);
 
   return (
-    <div className="pt-24 md:pt-0 bg-second w-full grid grid-cols-1 md:grid-cols-2 overflow-x-clip items-center justify-center gap-2">
+    <div className="pt-24 bg-second w-full grid grid-cols-1 md:grid-cols-2 overflow-x-clip items-center justify-center gap-2">
       <div className="z-10 flex flex-col p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32">
         <h1 className="text-6xl font-black uppercase text-neutral leading-none">
           Stay Unrivaled
