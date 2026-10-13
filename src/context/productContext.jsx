@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const ProductContext = createContext();
 
-const MOBILE_MESSENGER_URL = "ttps://m.me/ignitesoles";
+const MOBILE_MESSENGER_URL = "https://m.me/ignitesoles";
 const DESKTOP_MESSENGER_URL =
   "https://www.facebook.com/messages/t/61584438699396";
 
