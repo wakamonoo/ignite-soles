@@ -24,14 +24,8 @@
     --color-neutral: #ffffff;
     --color-stone: #e8e3df;
     --color-gray: #a6a6a6;
-
-    /* ————————————————————————————————————
-       supporting brand colors
-    ———————————————————————————————————— */
-    --color-mustard: #e3a72f;
-    --color-pickle: #596b3a;
-    --color-ketchup-dark: #a91f1f;
-    --color-grill: #3a2922;
+    --color-coral: #ff4d4f;
+    --color-muted: #b8b8b8;
 
     /* ————————————————————————————————————
        typography
@@ -146,22 +140,9 @@
     color: var(--color-muted);
   }
 
-  .text-mustard {
-    color: var(--color-mustard);
+  .text-coral {
+    color: var(--color-coral);
   }
-
-  .text-pickle {
-    color: var(--color-pickle);
-  }
-
-  .text-ketchup-dark {
-    color: var(--color-ketchup-dark);
-  }
-
-  .text-grill {
-    color: var(--color-grill);
-  }
-
   /* ————————————————————————————————————
      typography
   ———————————————————————————————————— */
@@ -194,18 +175,6 @@
 
   .border-brand {
     border-color: var(--color-border);
-  }
-
-  .border-mustard {
-    border-color: var(--color-mustard);
-  }
-
-  .border-pickle {
-    border-color: var(--color-pickle);
-  }
-
-  .border-grill {
-    border-color: var(--color-grill);
   }
 }
 

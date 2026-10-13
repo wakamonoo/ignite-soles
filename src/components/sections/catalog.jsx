@@ -2,10 +2,13 @@
 import Shoe from "@/assets/shoe.jpg";
 import { ProductContext } from "@/context/productContext";
 import { useContext, useState } from "react";
-import { TbShoe } from "react-icons/tb";
+import { TbShoe, TbShoeOff } from "react-icons/tb";
 import RegularButton from "../buttons/regularButton";
 import { BsDot, BsMessenger } from "react-icons/bs";
 import { GoDot, GoDotFill } from "react-icons/go";
+import { FaRegStar, FaShoePrints } from "react-icons/fa6";
+import { PiEmpty } from "react-icons/pi";
+import ProductCardLoader from "../loaders/productCardLoader";
 
 const categories = [
   { name: "All", value: "all" },
@@ -16,45 +19,72 @@ const categories = [
 ];
 
 export default function Catalog() {
-  const { products } = useContext(ProductContext);
+  const { products, productsLoading } = useContext(ProductContext);
   const [activeCategory, setActiveCategory] = useState("all");
+
+  const availableProducts = products.filter(
+    (product) => product.isAvailable === true,
+  );
 
   const filteredProducts =
     activeCategory === "all"
-      ? products
-      : products.filter((product) => product.category === activeCategory);
+      ? availableProducts
+      : availableProducts.filter(
+          (product) => product.category === activeCategory,
+        );
 
   return (
-   
-      <div
-        id="all"
-        className="w-full bg-second mt-16 p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32"
-      >
-        <div className="flex items-center gap-2">
-          <TbShoe className="text-lg text-neutral" />
-          <h2 className="text-lg uppercase text-neutral">All Shoes</h2>
-        </div>
-        <div className="mt-8 flex justify-center">
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2 max-w-4xl w-full">
-            {categories.map((category) => {
-              const isActive = activeCategory === category.value;
+    <div
+      id="all"
+      className="w-full bg-second mt-16 p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32"
+    >
+      <div className="flex items-center gap-2">
+        <TbShoe className="text-lg text-neutral" />
+        <h2 className="text-lg uppercase text-neutral">All Shoes</h2>
+      </div>
+      <div className="mt-8 flex justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2 max-w-4xl w-full">
+          {categories.map((category) => {
+            const isActive = activeCategory === category.value;
 
-              return (
-                <button
-                  key={category.value}
-                  onClick={() => setActiveCategory(category.value)}
-                  className={`cursor-pointer flex items-center justify-center gap-0.5 p-2 rounded-full transition-all duration-200 group border hover:bg-(--color-accent) active:bg-(--color-accent) ${isActive ? "bg-accent border-transparent" : "border-(--color-accent)"}`}
+            return (
+              <button
+                key={category.value}
+                onClick={() => setActiveCategory(category.value)}
+                className={`cursor-pointer flex items-center justify-center gap-0.5 p-2 rounded-full transition-all duration-200 group border hover:bg-(--color-accent) active:bg-(--color-accent) ${isActive ? "bg-accent border-transparent" : "border-(--color-accent)"}`}
+              >
+                <span
+                  className={`text-base font-bold uppercase group-hover:text-(--color-normal) group-active:text-(--color-normal) ${isActive ? "text-normal" : "text-accent"}`}
                 >
-                  <span
-                    className={`text-base font-bold uppercase group-hover:text-(--color-normal) group-active:text-(--color-normal) ${isActive ? "text-normal" : "text-accent"}`}
-                  >
-                    {category.name}
-                  </span>
-                </button>
-              );
-            })}
+                  {category.name}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {productsLoading ? (
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+        </div>
+      ) : filteredProducts.length === 0 ? (
+        <div className="py-16 flex w-full justify-center">
+          <div className="flex flex-col items-center justify-center max-w-md">
+            <TbShoeOff className="text-neutral text-4xl shrink-0" />
+            <h2 className="text-base font-tall uppercase text-neutral mt-2">
+              Empty Shoe Catalog
+            </h2>
+            <p className="text-sm text-muted text-center leading-none">
+              No available products in this category right now.
+            </p>
           </div>
         </div>
+      ) : (
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
           {filteredProducts.map((product) => {
             return (
@@ -103,6 +133,7 @@ export default function Catalog() {
             );
           })}
         </div>
-      </div>
+      )}
+    </div>
   );
 }

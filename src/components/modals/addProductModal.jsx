@@ -5,8 +5,10 @@ import ActionButton from "../buttons/actionButton";
 import Swal from "sweetalert2";
 import RegularButton from "../buttons/regularButton";
 import { LoaderContext } from "@/context/loaderContext";
+import { ProductContext } from "@/context/productContext";
 
 export default function AddProductModal({ setShowAddProductModal }) {
+  const { setProducts } = useContext(ProductContext);
   const { setIsLoading } = useContext(LoaderContext);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
@@ -21,10 +23,10 @@ export default function AddProductModal({ setShowAddProductModal }) {
       !name.trim() ||
       price === "" ||
       !Number.isFinite(Number(price)) ||
-      Number(price) < 0 ||
+      Number(price) <= 0 ||
       size === "" ||
       !Number.isFinite(Number(size)) ||
-      Number(size) < 0 ||
+      Number(size) <= 0 ||
       !condition ||
       !category ||
       !file
@@ -37,11 +39,12 @@ export default function AddProductModal({ setShowAddProductModal }) {
         timer: 2000,
         showConfirmButton: false,
         background: "var(--color-secondary)",
-        iconColor: "var(--color-accent)",
+        iconColor: "var(--color-coral)",
         customClass: {
           popup:
-            "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
-          title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+            "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+          title:
+            "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
         },
       });
       return;
@@ -64,17 +67,17 @@ export default function AddProductModal({ setShowAddProductModal }) {
           Swal.fire({
             toast: true,
             position: "bottom-start",
-            title: "File too large, 50 MB maximum per file!",
+            title: "File exceeds the 50 MB limit!",
             icon: "error",
             timer: 2000,
             showConfirmButton: false,
             background: "var(--color-secondary)",
-            iconColor: "var(--color-accent)",
+            iconColor: "var(--color-coral)",
             customClass: {
               popup:
-                "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+                "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
               title:
-                "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+                "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
             },
           });
           return;
@@ -100,41 +103,47 @@ export default function AddProductModal({ setShowAddProductModal }) {
       });
 
       if (!res.ok) {
-        throw new Error("failed to add story");
+        throw new Error("failed to add product");
       }
 
-      Swal.fire({
-        toast: true,
-        position: "bottom-start",
-        title: "Story now live!",
-        icon: "success",
-        timer: 2000,
-        showConfirmButton: false,
-        background: "var(--color-secondary)",
-        iconColor: "var(--color-olive)",
-        customClass: {
-          popup:
-            "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
-          title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
-        },
-      });
+      const { newProduct } = await res.json();
+
+      setProducts((prev) => [newProduct, ...prev]);
 
       setShowAddProductModal(false);
-    } catch (err) {
-      console.error(err);
+
       Swal.fire({
         toast: true,
         position: "bottom-start",
-        title: "Something went wrong, please try again later!",
-        icon: "error",
+        title: "Product succesfully added!",
+        icon: "success",
         timer: 2000,
         showConfirmButton: false,
         background: "var(--color-secondary)",
         iconColor: "var(--color-accent)",
         customClass: {
           popup:
-            "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
-          title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+            "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+          title:
+            "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
+        },
+      });
+    } catch (err) {
+      console.error(err);
+      Swal.fire({
+        toast: true,
+        position: "bottom-start",
+        title: "Something went wrong try again later!",
+        icon: "error",
+        timer: 2000,
+        showConfirmButton: false,
+        background: "var(--color-secondary)",
+        iconColor: "var(--color-coral)",
+        customClass: {
+          popup:
+            "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+          title:
+            "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
         },
       });
     } finally {

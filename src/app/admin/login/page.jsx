@@ -25,17 +25,17 @@ export default function Login() {
         Swal.fire({
           toast: true,
           position: "bottom-start",
-          title: "Sign in failed, please try again later!",
+          title: "Sign in failed!",
           icon: "error",
           timer: 2000,
           showConfirmButton: false,
           background: "var(--color-secondary)",
-          iconColor: "var(--color-accent)",
+          iconColor: "var(--color-coral)",
           customClass: {
             popup:
-              "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+              "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
             title:
-              "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+              "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
           },
         });
       }
@@ -55,17 +55,17 @@ export default function Login() {
         Swal.fire({
           toast: true,
           position: "bottom-start",
-          title: "You are not authorized to access the admin panel.",
+          title: "Your are not authorized to access admin panel!",
           icon: "error",
           timer: 2000,
           showConfirmButton: false,
           background: "var(--color-secondary)",
-          iconColor: "var(--color-accent)",
+          iconColor: "var(--color-coral)",
           customClass: {
             popup:
-              "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+              "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
             title:
-              "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+              "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
           },
         });
       }
@@ -77,16 +77,17 @@ export default function Login() {
       Swal.fire({
         toast: true,
         position: "bottom-start",
-        title: "Sign in failed, please try again later!",
+        title: "Sign in failed!",
         icon: "error",
         timer: 2000,
         showConfirmButton: false,
         background: "var(--color-secondary)",
-        iconColor: "var(--color-accent)",
+        iconColor: "var(--color-coral)",
         customClass: {
           popup:
-            "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
-          title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+            "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+          title:
+            "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
         },
       });
     }

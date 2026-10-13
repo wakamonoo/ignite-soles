@@ -8,7 +8,7 @@ export async function GET(request) {
 
     const products = await db
       .collection("products")
-      .find({})
+      .find({ isAvailable: true })
       .sort({ createdAt: 1 })
       .toArray();
 

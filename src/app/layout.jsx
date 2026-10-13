@@ -1,14 +1,10 @@
-import {
-  Fugaz_One,
-  Nunito_Sans,
-  Lilita_One,
-  Oswald,
-} from "next/font/google";
+import { Fugaz_One, Nunito_Sans, Lilita_One, Oswald } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "@/context/userContext";
 import { ProductProvider } from "@/context/productContext";
 import { NavigationProvider } from "@/context/navigationContext";
 import { LoaderProvider } from "@/context/loaderContext";
+import { ExpenseProvider } from "@/context/expenseContext";
 
 const heading = Fugaz_One({
   variable: "--heading-family",
@@ -75,7 +71,9 @@ export default function RootLayout({ children }) {
         <UserProvider>
           <ProductProvider>
             <LoaderProvider>
-              <NavigationProvider>{children}</NavigationProvider>
+              <ExpenseProvider>
+                <NavigationProvider>{children}</NavigationProvider>
+              </ExpenseProvider>
             </LoaderProvider>
           </ProductProvider>
         </UserProvider>

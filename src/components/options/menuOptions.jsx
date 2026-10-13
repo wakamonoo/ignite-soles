@@ -33,9 +33,9 @@ export default function MenuOptions({
   return (
     <div
       ref={divRef}
-      className="absolute top-14 right-0 h-fit w-[50vw] bg-panel rounded-lg shadow-2xl p-2 z-100"
+      className="absolute top-14 right-0 h-fit w-[50vw] bg-panel rounded-2xl pt-4 shadow-2xl z-100"
     >
-      <div className="flex flex-col">
+      <div className="p-2 custom-scroll bg-stone rounded-t-2xl">
         <MenuButton onClick={handleFeaturedClick}>
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
             Featured

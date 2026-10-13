@@ -27,7 +27,7 @@ export async function POST(request) {
     return Response.json({
       success: true,
       message: "product added succesfully",
-      product: newProduct,
+      newProduct,
     });
   } catch (err) {
     console.error("failed to add product", err);

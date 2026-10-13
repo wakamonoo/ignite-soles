@@ -5,11 +5,13 @@ import ActionButton from "../buttons/actionButton";
 import { useContext } from "react";
 import { LoaderContext } from "@/context/loaderContext";
 import SecondaryButton from "../buttons/secondaryButton";
+import { ProductContext } from "@/context/productContext";
 
 export default function ConfirmProductDeleteModal({
   selectedProduct,
   setShowConfirmProductDeleteModal,
 }) {
+  const { setProducts} = useContext(ProductContext)
   const { setIsLoading } = useContext(LoaderContext);
 
   const deleteProduct = async () => {
@@ -19,21 +21,24 @@ export default function ConfirmProductDeleteModal({
         method: "DELETE",
       });
 
+      setProducts((prev) => prev.filter((product) => product.productId !== selectedProduct.productId))
+
       setShowConfirmProductDeleteModal(false);
 
       Swal.fire({
         toast: true,
         position: "bottom-start",
-        title: "Story succesfully deleted!",
+        title: "Product deleted!",
         icon: "success",
         timer: 2000,
         showConfirmButton: false,
         background: "var(--color-secondary)",
-        iconColor: "var(--color-olive)",
+        iconColor: "var(--color-accent)",
         customClass: {
           popup:
-            "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
-          title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+            "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+          title:
+            "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
         },
       });
     } catch (err) {
@@ -46,11 +51,12 @@ export default function ConfirmProductDeleteModal({
         timer: 2000,
         showConfirmButton: false,
         background: "var(--color-secondary)",
-        iconColor: "var(--color-accent)",
+        iconColor: "var(--color-coral)",
         customClass: {
           popup:
-            "!w-full !max-w-xs !inline-flex !items-center !justify-center !border !border-(--color-panel) !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
-          title: "!text-base !font-semibold !text-(--color-text) !leading-4.5",
+            "!w-full !max-w-xs !inline-flex !items-center !justify-center !text-normal !rounded-lg !shadow-lg !px-4 !py-2",
+          title:
+            "!text-base !uppercase !font-[family-name:var(--font-tall)] !font-semibold !text-(--color-neutral) !leading-4.5",
         },
       });
     } finally {
