@@ -14,7 +14,7 @@ import {
   BiShoppingBag,
   BiWalletAlt,
 } from "react-icons/bi";
-import { BsBox, BsMessenger } from "react-icons/bs";
+import { BsBox, BsMessenger, BsReceiptCutoff } from "react-icons/bs";
 import { ProductContext } from "@/context/productContext";
 import { FcPicture } from "react-icons/fc";
 import { SlPicture } from "react-icons/sl";
@@ -32,12 +32,14 @@ import {
 import EditProductModal from "@/components/modals/editProductModal";
 import ConfirmProductDeleteModal from "@/components/modals/confirmProductDeleteModal";
 import ProductCardLoader from "@/components/loaders/productCardLoader";
-import { TbShoeOff } from "react-icons/tb";
+import { TbReceiptOff, TbShoeOff } from "react-icons/tb";
 import AddExpenseModal from "@/components/modals/addExpenseModal";
 import CountUp from "react-countup";
 import { format, parseISO } from "date-fns";
 import { ExpenseContext } from "@/context/expenseContext";
 import AdminNavbar from "@/components/layout/essentials/adminNavbar";
+import ExpenseCard from "@/components/layout/expenses/expenceCard";
+import ExpenseCardLoader from "@/components/loaders/expenseCardLoader";
 
 const availabilities = [
   { name: "All", value: "all" },
@@ -52,16 +54,15 @@ export default function Admin() {
   const [showEditProductModal, setShowEditProductModal] = useState(false);
   const [showConfirmProductDeleteModal, setShowConfirmProductDeleteModal] =
     useState(false);
-
   const { setIsLoading } = useContext(LoaderContext);
   const { products, setProducts, productsLoading } = useContext(ProductContext);
   const [activeAvailability, setActiveAvailabilty] = useState("all");
   const {
     expenses,
-    setExpenses,
     setSelectedExpense,
     setShowEditExpenseModal,
     setShowConfirmExpenseDeleteModal,
+    expensesLoading,
   } = useContext(ExpenseContext);
   const router = useRouter();
 
@@ -73,28 +74,6 @@ export default function Admin() {
             ? product.isAvailable === true
             : product.isAvailable === false,
         );
-
-  useEffect(() => {
-    const fetchExpenses = async () => {
-      try {
-        const res = await fetch("/api/expenses/getExpenses", {
-          method: "GET",
-        });
-
-        if (!res.ok) {
-          throw new Error("failed to fetch expenses");
-        }
-
-        const data = await res.json();
-        setExpenses(data.result);
-      } catch (err) {
-        console.error("failed to fetch expenses", err);
-        setExpenses([]);
-      }
-    };
-
-    fetchExpenses();
-  }, []);
 
   const totalSales = products
     .filter((product) => product.isAvailable === false)
@@ -290,12 +269,9 @@ export default function Admin() {
             <div className="block lg:hidden">
               <div className="mt-8 w-full ">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <BiReceipt className="text-base text-normal shrink-0" />
-                    <p className="text-base text-normal font-tall">
-                      Recent Expences
-                    </p>
-                  </div>
+                  <p className="text-base text-normal font-tall">
+                    Recent Expences
+                  </p>
                   <button
                     onClick={() => router.push("/admin/expenses")}
                     className="cursor-pointer"
@@ -305,49 +281,39 @@ export default function Admin() {
                 </div>
               </div>
 
-              {recentExpenses.map((expense) => {
-                return (
-                  <div
-                    key={expense.expenseId}
-                    className="mt-2 p-4 rounded bg-stone shadow-md"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-col">
-                        <p className="text-base text-normal font-semibold">
-                          {expense.name}
-                        </p>
-                        <p className="text-sm text-muted">
-                          {format(parseISO(expense.date), "MMM d, yyyy")}
-                        </p>
-                      </div>
-                      <p className="text-base font-heading">
-                        ₱ {expense.amount}
-                      </p>
-                    </div>
-                    <div className="w-full h-px bg-second opacity-20 my-4" />
-                    <div className="ml-auto w-fit flex gap-2">
-                      <button
-                        onClick={() => {
-                          setSelectedExpense(expense);
-                          setShowEditExpenseModal(true);
-                        }}
-                        className="cursor-pointer w-8 h-8 rounded-full flex items-center justify-center group transition-all duration-200 hover:bg-(--color-secondary) active:bg-(--color-secondary)"
-                      >
-                        <FaPencil className="text-base text-normal transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral)" />
-                      </button>
-                      <button
-                        onClick={() => {
-                          setSelectedExpense(expense);
-                          setShowConfirmExpenseDeleteModal(true);
-                        }}
-                        className="cursor-pointer w-8 h-8 rounded-full flex items-center justify-center group transition-all duration-200 hover:bg-(--color-secondary) active:bg-(--color-secondary)"
-                      >
-                        <FaTrash className="text-base text-normal transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral)" />
-                      </button>
-                    </div>
+              {expensesLoading ? (
+                <>
+                  <ExpenseCardLoader />
+                  <ExpenseCardLoader />
+                  <ExpenseCardLoader />
+                </>
+              ) : recentExpenses.length === 0 ? (
+                <div className="py-16 flex w-full justify-center">
+                  <div className="flex flex-col items-center justify-center max-w-md">
+                    <TbReceiptOff className="text-normal text-4xl shrink-0" />
+                    <h2 className="text-base font-tall uppercase text-normal mt-2">
+                      No Expenses Yet
+                    </h2>
+                    <p className="text-sm text-muted text-center leading-none">
+                      Your expenses will appear here once you add one.
+                    </p>
                   </div>
-                );
-              })}
+                </div>
+              ) : (
+                recentExpenses.map((expense) => {
+                  return (
+                    <ExpenseCard
+                      key={expense.expenseId}
+                      expense={expense}
+                      setShowEditExpenseModal={setShowEditExpenseModal}
+                      setShowConfirmExpenseDeleteModal={
+                        setShowConfirmExpenseDeleteModal
+                      }
+                      setSelectedExpense={setSelectedExpense}
+                    />
+                  );
+                })
+              )}
             </div>
 
             <div className="mt-16 flex justify-center">
@@ -473,51 +439,40 @@ export default function Admin() {
             )}
           </main>
           <aside className="hidden lg:block">
-            <div className="flex items-center gap-2">
-              <BiReceipt className="text-base text-normal shrink-0" />
-              <p className="text-base text-normal font-tall">Recent Expences</p>
-            </div>
-            {expenses.map((expense) => {
-              return (
-                <div
-                  key={expense.expenseId}
-                  className="mt-2 p-4 rounded bg-stone shadow-md"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <p className="text-base text-normal font-semibold">
-                        {expense.name}
-                      </p>
-                      <p className="text-sm text-muted">
-                        {format(parseISO(expense.date), "MMM d, yyyy")}
-                      </p>
-                    </div>
-                    <p className="text-base font-heading">₱ {expense.amount}</p>
-                  </div>
-                  <div className="w-full h-px bg-second opacity-20 my-4" />
-                  <div className="ml-auto w-fit flex gap-2">
-                    <button
-                      onClick={() => {
-                        setSelectedExpense(expense);
-                        setShowEditExpenseModal(true);
-                      }}
-                      className="cursor-pointer w-8 h-8 rounded-full flex items-center justify-center group transition-all duration-200 hover:bg-(--color-secondary) active:bg-(--color-secondary)"
-                    >
-                      <FaPencil className="text-base text-normal transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral)" />
-                    </button>
-                    <button
-                      onClick={() => {
-                        setSelectedExpense(expense);
-                        setShowConfirmExpenseDeleteModal(true);
-                      }}
-                      className="cursor-pointer w-8 h-8 rounded-full flex items-center justify-center group transition-all duration-200 hover:bg-(--color-secondary) active:bg-(--color-secondary)"
-                    >
-                      <FaTrash className="text-base text-normal transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral)" />
-                    </button>
-                  </div>
+            <p className="text-base text-normal font-tall">Recent Expences</p>
+            {expensesLoading ? (
+              <>
+                <ExpenseCardLoader />
+                <ExpenseCardLoader />
+                <ExpenseCardLoader />
+              </>
+            ) : expenses.length === 0 ? (
+              <div className="py-16 flex w-full justify-center">
+                <div className="flex flex-col items-center justify-center max-w-md">
+                  <TbReceiptOff className="text-normal text-4xl shrink-0" />
+                  <h2 className="text-base font-tall uppercase text-normal mt-2">
+                    No Expenses Yet
+                  </h2>
+                  <p className="text-sm text-muted text-center leading-none">
+                    Your expenses will appear here once you add one.
+                  </p>
                 </div>
-              );
-            })}
+              </div>
+            ) : (
+              expenses.map((expense) => {
+                return (
+                  <ExpenseCard
+                    key={expense.expenseId}
+                    expense={expense}
+                    setShowEditExpenseModal={setShowEditExpenseModal}
+                    setShowConfirmExpenseDeleteModal={
+                      setShowConfirmExpenseDeleteModal
+                    }
+                    setSelectedExpense={setSelectedExpense}
+                  />
+                );
+              })
+            )}
           </aside>
         </div>
       </div>
