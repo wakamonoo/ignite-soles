@@ -18,8 +18,10 @@ const categories = [
   { name: "slides", value: "slides" },
 ];
 
+
+
 export default function Catalog() {
-  const { products, productsLoading } = useContext(ProductContext);
+  const { products, productsLoading, handleMessengerInquiry } = useContext(ProductContext);
   const [activeCategory, setActiveCategory] = useState("all");
 
   const availableProducts = products.filter(
@@ -32,6 +34,8 @@ export default function Catalog() {
       : availableProducts.filter(
           (product) => product.category === activeCategory,
         );
+
+  
 
   return (
     <div
@@ -121,10 +125,12 @@ export default function Catalog() {
                     </p>
                   </div>
                   <div className="mt-2">
-                    <RegularButton>
+                    <RegularButton
+                      onClick={() => handleMessengerInquiry(product)}
+                    >
                       <BsMessenger className="text-base shrink-0 text-normal transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)" />
                       <p className="text-sm uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
-                        Message Us
+                        Inquire Now
                       </p>
                     </RegularButton>
                   </div>

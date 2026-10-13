@@ -38,36 +38,21 @@ export const NavigationProvider = ({ children }) => {
   };
 
   const handleFeaturedClick = () => {
-    if (pathname === "/") {
-      document
-        .getElementById("featured")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      setIsLoading(true);
-      router.push("/#featured");
-    }
+    document
+      .getElementById("featured")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleAllItemsClick = () => {
-    if (pathname === "/") {
-      document
-        .getElementById("all")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      setIsLoading(true);
-      router.push("/#all");
-    }
+    document
+      .getElementById("all")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleAboutClick = () => {
-    if (pathname === "/") {
-      document
-        .getElementById("about")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      setIsLoading(true);
-      router.push("/#about");
-    }
+    document
+      .getElementById("about")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (

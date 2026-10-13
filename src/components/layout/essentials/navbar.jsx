@@ -46,14 +46,14 @@ export default function Navbar() {
       </div>
       <div className="flex gap-2 items-center">
         <a
-          href="https://m.me/61584438699396"
+          href="https://www.facebook.com/messages/t/61584438699396"
           target="_blank"
           rel="noopener noreferrer"
         >
           <ActionButton>
             <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
             <p className="text-sm uppercase text-accent font-heading transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)">
-              Inquire Now
+              Chat With Us
             </p>
           </ActionButton>
         </a>

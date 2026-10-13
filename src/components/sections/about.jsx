@@ -94,7 +94,7 @@ export default function About() {
                 Fresh Finds
               </p>
               <p className="text-base text-muted leading-tight">
-                Trend pairs. New arrivals. Always something new.
+                Trend pairs. Fresh arrivals.
               </p>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function About() {
                 Everyday Rotation
               </p>
               <p className="text-base text-muted leading-tight">
-                Because your rotaion deserves an upgrade.
+                Upgrade your rotation.
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function About() {
                 Quality Picks
               </p>
               <p className="text-base text-muted leading-tight">
-                Carefully selected. Only the best pairs.
+                Only the best pairs.
               </p>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function About() {
                 Fair Deals
               </p>
               <p className="text-base text-muted leading-tight">
-                No hidden fees. Just solid deals.
+                Great deals. Honest prices.
               </p>
             </div>
           </div>

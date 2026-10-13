@@ -3,14 +3,16 @@ import { GiCrown, GiFlamedLeaf, GiSonicShoes } from "react-icons/gi";
 import { FaBox, FaCrown, FaRegStar, FaShoePrints } from "react-icons/fa6";
 import RegularButton from "../buttons/regularButton";
 import { BsMessenger } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ActionButton from "../buttons/actionButton";
 import { GoDotFill } from "react-icons/go";
 import { BiCheckCircle } from "react-icons/bi";
 import { PiEmpty } from "react-icons/pi";
 import FeaturedProductCardLoader from "../loaders/featuredProductCardLoader";
+import { ProductContext } from "@/context/productContext";
 
 export default function Featured() {
+  const { handleMessengerInquiry } = useContext(ProductContext);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [featuredProductsLoading, setFeaturedProductsLoading] = useState(true);
 
@@ -109,10 +111,12 @@ export default function Featured() {
                     </div>
                   </div>
                   <div className="mt-4 min-w-0">
-                    <ActionButton>
+                    <ActionButton
+                      onClick={() => handleMessengerInquiry(product)}
+                    >
                       <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
                       <p className="text-sm uppercase text-accent font-tall transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal) whitespace-nowrap">
-                        Message Us
+                        Inquire Now
                       </p>
                     </ActionButton>
                   </div>
