@@ -105,10 +105,10 @@ export default function About() {
 
             <div className="flex flex-col">
               <p className="font-tall text-lg uppercase leading-tight">
-                Everyday Rotation
+                On Repeat
               </p>
               <p className="text-base text-muted leading-tight">
-                Upgrade your rotation.
+                Made for every step.
               </p>
             </div>
           </div>

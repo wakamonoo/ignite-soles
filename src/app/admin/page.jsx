@@ -438,8 +438,8 @@ export default function Admin() {
               </div>
             )}
           </main>
-          <aside className="hidden lg:block">
-            <p className="text-base text-normal font-tall">Recent Expences</p>
+          <aside className="hidden lg:block top-0 sticky h-[calc(100vh-6rem)] overflow-y-auto custom-scroll">
+            <p className="text-base text-normal font-tall">Expences</p>
             {expensesLoading ? (
               <>
                 <ExpenseCardLoader />

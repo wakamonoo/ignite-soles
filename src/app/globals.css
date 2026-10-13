@@ -205,7 +205,7 @@
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: transparent;
   border-radius: 8px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -216,7 +216,7 @@
 }
 
 .custom-scroll:hover {
-  scrollbar-color: var(--color-border) transparent;
+  scrollbar-color: var(--color-gray) transparent;
 }
 
 /* ————————————————————————————————————

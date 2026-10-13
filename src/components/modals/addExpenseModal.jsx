@@ -71,7 +71,7 @@ export default function AddExpenseModal({ setShowAddExpenseModal }) {
 
       const data = await res.json();
 
-      setExpenses((prev) => [...prev, data.newExpense]);
+      setExpenses((prev) => [data.newExpense, ...prev]);
 
       setShowAddExpenseModal(false);
 

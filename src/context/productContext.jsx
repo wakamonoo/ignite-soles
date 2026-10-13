@@ -3,7 +3,9 @@ import { createContext, useEffect, useState } from "react";
 
 export const ProductContext = createContext();
 
-const MESSENGER_URL = "https://www.facebook.com/messages/t/61584438699396";
+const MOBILE_MESSENGER_URL = "ttps://m.me/ignitesoles";
+const DESKTOP_MESSENGER_URL =
+  "https://www.facebook.com/messages/t/61584438699396";
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
@@ -45,7 +47,11 @@ export const ProductProvider = ({ children }) => {
       "Is this still available?",
     ].join("\n");
 
-    const messengerUrl = new URL(MESSENGER_URL);
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    const messengerUrl = new URL(
+      isMobile ? MOBILE_MESSENGER_URL : DESKTOP_MESSENGER_URL,
+    );
     messengerUrl.searchParams.set("text", message);
 
     window.open(messengerUrl.toString(), "_blank", "noopener,noreferrer");
@@ -53,7 +59,13 @@ export const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{ fetchProducts, products, setProducts, productsLoading, handleMessengerInquiry }}
+      value={{
+        fetchProducts,
+        products,
+        setProducts,
+        productsLoading,
+        handleMessengerInquiry,
+      }}
     >
       {children}
     </ProductContext.Provider>
