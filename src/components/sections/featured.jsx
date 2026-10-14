@@ -116,7 +116,7 @@ export default function Featured() {
                       onClick={() => handleMessengerInquiry(product)}
                     >
                       <BsMessenger className="text-base shrink-0 text-accent transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal)" />
-                      <p className="text-sm uppercase text-accent font-tall transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal) whitespace-nowrap">
+                      <p className="text-sm uppercase text-accent font-heading transition-all duration-200 group-hover:text-(--color-normal) group-active:text-(--color-normal) whitespace-nowrap">
                         Inquire Now
                       </p>
                     </ActionButton>

@@ -29,16 +29,49 @@ const tall = Oswald({
 });
 
 export const metadata = {
-  title: "ignite soles • your sole identity",
+  title: "ignite soles • stay unrivaled",
   description:
-    "Satisfy your cravings with Rhon's Burger. Explore a menu of burgers, fries, hotdogs, and more, then place your order and enjoy your favorites delivered straight to your door.",
+    "Find your next favorite pair at Ignite Soles. Explore a collection of sneakers, sports shoes, and casual footwear, with brand-new and pre-loved finds to match your style and budget.",
+
+  keywords: [
+    "Ignite Soles",
+    "Sneakers",
+    "Sports Shoes",
+    "Casual Shoes",
+    "Sneaker Collection",
+    "Pre-Loved Shoes",
+    "Brand New Shoes",
+    "Affordable Sneakers",
+    "Footwear",
+    "Shoe Store",
+  ],
+
+  authors: [{ name: "Joven Bataller", url: "https://wakamonoo.site" }],
+
+  creator: "Joven Bataller",
+  publisher: "Ignite Soles",
+
+  applicationName: "Ignite Soles",
+
+  category: "Shopping",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  icons: {
+    icon: "/icons/icon.png",
+    apple: "/icons/icon.png",
+    shortcut: "/icons/icon.png",
+  },
 
   openGraph: {
-    title: "Rhon's Burger • Bite into Better",
+    title: "ignite soles • stay unrivaled",
     description:
-      "Satisfy your cravings with Rhon's Burger. Explore a menu of burgers, fries, hotdogs, and more, then place your order and enjoy your favorites delivered straight to your door.",
-    url: "https://rhons-burger.vercel.app/",
-    siteName: "Rhon's Burger",
+      "Find your next favorite pair at Ignite Soles. Explore a collection of sneakers, sports shoes, and casual footwear, with brand-new and pre-loved finds to match your style and budget.",
+    url: "https://ignite-soles.vercel.app/",
+    siteName: "ignite soles",
     locale: "en-US",
     type: "website",
     images: [
@@ -52,13 +85,13 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Rhon's Burger • Bite into Better",
+    title: "ignite soles • stay unrivaled",
     description:
-      "Satisfy your cravings with Rhon's Burger. Explore a menu of burgers, fries, hotdogs, and more, then place your order and enjoy your favorites delivered straight to your door.",
+      "Find your next favorite pair at Ignite Soles. Explore a collection of sneakers, sports shoes, and casual footwear, with brand-new and pre-loved finds to match your style and budget.",
     images: "/banner.png",
   },
 
-  metadataBase: new URL("https://rhons-burger.vercel.app/"),
+  metadataBase: new URL("https://ignite-soles.vercel.app/"),
 };
 
 export default function RootLayout({ children }) {
