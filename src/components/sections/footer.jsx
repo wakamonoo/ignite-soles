@@ -118,7 +118,7 @@ export default function Footer() {
 
             <div className="flex gap-2">
               <a
-                href="https://web.facebook.com/profile.php?id=61584438699396"
+                href="https://web.facebook.com/ignitesoles"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer w-8 h-8 flex items-center justify-center transition-all duration-200 group hover:bg-(--color-accent) active:bg-(--color-accent)  rounded-full"

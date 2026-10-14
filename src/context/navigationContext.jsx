@@ -14,6 +14,10 @@ import { LoaderContext } from "./loaderContext";
 
 export const NavigationContext = createContext();
 
+const MOBILE_MESSENGER_URL = "https://m.me/ignitesoles";
+const DESKTOP_MESSENGER_URL =
+  "https://www.facebook.com/messages/t/61584438699396";
+
 export const NavigationProvider = ({ children }) => {
   const { fetchProducts } = useContext(ProductContext);
   const { setIsLoading } = useContext(LoaderContext);
@@ -55,6 +59,32 @@ export const NavigationProvider = ({ children }) => {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const handleMessengerInquiry = async (product) => {
+    const message = [
+      "Hi! I'm interested in this shoe.",
+      "",
+      `Product: ${product.name}`,
+      `Price: ₱${Number(product.price).toLocaleString("en-PH")}`,
+      `Size: ${product.size}`,
+      `Condition: ${product.condition
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join("-")}`,
+      `Product ID: ${product.productId}`,
+      "",
+      "Is this still available?",
+    ].join("\n");
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    const messengerUrl = new URL(
+      isMobile ? MOBILE_MESSENGER_URL : DESKTOP_MESSENGER_URL,
+    );
+    messengerUrl.searchParams.set("text", message);
+
+    window.open(messengerUrl.toString(), "_blank", "noopener,noreferrer");
+  };
+
   return (
     <NavigationContext.Provider
       value={{
@@ -62,6 +92,7 @@ export const NavigationProvider = ({ children }) => {
         handleFeaturedClick,
         handleAllItemsClick,
         handleAboutClick,
+        handleMessengerInquiry,
       }}
     >
       {children}

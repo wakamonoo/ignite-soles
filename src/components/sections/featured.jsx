@@ -10,9 +10,10 @@ import { BiCheckCircle } from "react-icons/bi";
 import { PiEmpty } from "react-icons/pi";
 import FeaturedProductCardLoader from "../loaders/featuredProductCardLoader";
 import { ProductContext } from "@/context/productContext";
+import { NavigationContext } from "@/context/navigationContext";
 
 export default function Featured() {
-  const { handleMessengerInquiry } = useContext(ProductContext);
+  const { handleMessengerInquiry } = useContext(NavigationContext);
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [featuredProductsLoading, setFeaturedProductsLoading] = useState(true);
 

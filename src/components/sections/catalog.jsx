@@ -9,6 +9,7 @@ import { GoDot, GoDotFill } from "react-icons/go";
 import { FaRegStar, FaShoePrints } from "react-icons/fa6";
 import { PiEmpty } from "react-icons/pi";
 import ProductCardLoader from "../loaders/productCardLoader";
+import { NavigationContext } from "@/context/navigationContext";
 
 const categories = [
   { name: "All", value: "all" },
@@ -18,10 +19,9 @@ const categories = [
   { name: "slides", value: "slides" },
 ];
 
-
-
 export default function Catalog() {
-  const { products, productsLoading, handleMessengerInquiry } = useContext(ProductContext);
+  const { products, productsLoading } = useContext(ProductContext);
+  const { handleMessengerInquiry } = useContext(NavigationContext);
   const [activeCategory, setActiveCategory] = useState("all");
 
   const availableProducts = products.filter(
@@ -34,8 +34,6 @@ export default function Catalog() {
       : availableProducts.filter(
           (product) => product.category === activeCategory,
         );
-
-  
 
   return (
     <div

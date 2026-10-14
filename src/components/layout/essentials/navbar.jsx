@@ -46,7 +46,7 @@ export default function Navbar() {
       </div>
       <div className="flex gap-2 items-center">
         <a
-          href="https://www.facebook.com/messages/t/61584438699396"
+          href="https://web.facebook.com/ignitesoles"
           target="_blank"
           rel="noopener noreferrer"
         >
