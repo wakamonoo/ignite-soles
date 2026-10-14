@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export async function POST(request) {
   try {
-    const { name, amount, date } = await request.json();
+    const { name, amount, note, date } = await request.json();
 
     const client = await clientPromise;
     const mongodb = process.env.MONGODB;
@@ -13,6 +13,7 @@ export async function POST(request) {
       expenseId: `expense-${uuidv4()}`,
       name,
       amount: Number(amount),
+      note,
       date,
       createdAt: new Date(),
     };

@@ -3,7 +3,7 @@ import clientPromise from "@/lib/mongodb";
 export async function PUT(request, { params }) {
   try {
     const { expenseId } = await params;
-    const { name, amount, date } = await request.json();
+    const { name, amount, note, date } = await request.json();
 
     const client = await clientPromise;
     const mongodb = process.env.MONGODB;
@@ -12,6 +12,7 @@ export async function PUT(request, { params }) {
     const updatedExpense = {
       name: name.trim(),
       amount: Number(amount),
+      note,
       date,
       lastUpdatedAt: new Date(),
     };

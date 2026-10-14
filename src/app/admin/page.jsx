@@ -392,7 +392,7 @@ export default function Admin() {
                         />
                       </div>
                       <div className="flex flex-col w-full p-2">
-                        <h4 className="text-base font-tall uppercase leading-tight">
+                        <h4 className="text-base font-tall uppercase leading-tight truncate">
                           {product.name}
                         </h4>
                         <div className="flex justify-between items-center">
@@ -406,10 +406,10 @@ export default function Admin() {
                             </span>
                           </div>
                         </div>
-                        <div className="mt-2 flex items-center">
+                        <div className="mt-2 flex gap-0.5 items-center">
                           <GoDotFill className="text-base text-accent" />
-                          <p className="text-xs text-muted uppercase">
-                            Condition: {product.condition}
+                          <p className="text-xs text-normal uppercase">
+                            {product.condition}
                           </p>
                         </div>
                         <div className="mt-2">

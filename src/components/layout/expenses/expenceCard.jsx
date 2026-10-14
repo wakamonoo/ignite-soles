@@ -26,6 +26,11 @@ export default function ExpenseCard({
         </div>
         <p className="text-base font-heading">₱ {expense.amount}</p>
       </div>
+      {expense.note && (
+        <div className="mt-4">
+          <p className="text-base text-normal">{expense.note}</p>
+        </div>
+      )}
       <div className="w-full h-px bg-second opacity-20 my-4" />
       <div className="ml-auto w-fit flex gap-2">
         <button

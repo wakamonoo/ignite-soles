@@ -14,6 +14,7 @@ export default function EditExpenseModal({}) {
   const { setIsLoading } = useContext(LoaderContext);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState(0);
+  const [note, setNote] = useState("");
   const [date, setDate] = useState(() => {
     const today = new Date();
 
@@ -28,6 +29,7 @@ export default function EditExpenseModal({}) {
     if (selectedExpense) {
       setName(selectedExpense.name);
       setAmount(selectedExpense.amount);
+      setNote(selectedExpense.note);
       setDate(new Date(selectedExpense.date).toISOString().split("T")[0]);
     }
   }, [selectedExpense]);
@@ -179,6 +181,18 @@ export default function EditExpenseModal({}) {
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="eg. 43"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
+                />
+              </div>
+              <div className="py-2 flex flex-col flex-1">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
+                  Add Note
+                </h4>
+                <input
+                  type="text"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                  placeholder="Optional"
                   className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 />
               </div>

@@ -13,6 +13,7 @@ export default function AddExpenseModal({ setShowAddExpenseModal }) {
   const { setIsLoading } = useContext(LoaderContext);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState(0);
+  const [note, setNote] = useState("");
   const [date, setDate] = useState(() => {
     const today = new Date();
 
@@ -61,6 +62,7 @@ export default function AddExpenseModal({ setShowAddExpenseModal }) {
         body: JSON.stringify({
           name,
           amount,
+          note,
           date,
         }),
       });
@@ -161,6 +163,18 @@ export default function AddExpenseModal({ setShowAddExpenseModal }) {
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="eg. 43"
+                  className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
+                />
+              </div>
+              <div className="py-2 flex flex-col flex-1">
+                <h4 className="text-base whitespace-nowrap text-normal font-tall uppercase">
+                  Note
+                </h4>
+                <input
+                  type="text"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                  placeholder="Optional"
                   className=" p-2 rounded w-full outline outline-(--color-panel) text-base text-normal"
                 />
               </div>

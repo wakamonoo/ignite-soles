@@ -11,6 +11,10 @@ export default function ExpenseCardLoader() {
         </div>
         <div className="bg-gray h-6 w-18 shrink-0 rounded" />
       </div>
+      <div className="mt-4 flex flex-col gap-0.5">
+        <div className="bg-gray h-6 w-full shrink-0 rounded" />
+        <div className="bg-gray h-6 w-12 shrink-0 rounded" />
+      </div>
       <div className="w-full h-px bg-gray opacity-20 my-4" />
       <div className="ml-auto w-fit flex gap-2">
         <div className="w-8 h-8 p-2 rounded-full bg-gray" />
