@@ -234,7 +234,7 @@ export default function Admin() {
               <div className="flex flex-col gap-2 bg-stone shadow-md p-4 rounded-md">
                 <BsBox className="text-2xl shrink-0 text-normal" />
                 <p className="text-sm text-normal font-semibold uppercase">
-                  Items Listed
+                  Total Items
                 </p>
                 <CountUp
                   end={itemsListed}
@@ -384,10 +384,10 @@ export default function Admin() {
                           <FaTrash className="text-base text-normal transition-all duration-200 group-hover:text-(--color-neutral) group-active:text-(--color-neutral)" />
                         </button>
                       </div>
-                      <div className="w-full aspect-square">
+                      <div className="w-full aspect-square overflow-hidden">
                         <img
                           src={product.photo}
-                          about="burger"
+                          alt={product.name}
                           className="w-full h-full object-cover"
                         />
                       </div>

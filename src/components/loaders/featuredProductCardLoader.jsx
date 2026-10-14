@@ -1,7 +1,7 @@
 export default function FeaturedProductCardLoader() {
   return (
     <div className="flex gap-2 items-stretch bg-stone rounded-lg shadow-lg overflow-hidden animate-pulse">
-      <div className="flex w-[40%] min-w-0 shrink-0 items-center justify-center bg-gray" />
+      <div className="flex w-[40%] aspect-square  min-w-0 shrink-0 items-center justify-center bg-gray" />
 
       <div className="flex min-w-0 flex-1 flex-col justify-center overflow-hidden w-full p-2">
         <div className="bg-gray h-6 w-32 shrink-0 rounded" />

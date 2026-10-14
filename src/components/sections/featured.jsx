@@ -70,7 +70,7 @@ export default function Featured() {
                 key={product.productId}
                 className="flex gap-2 items-stretch bg-second rounded-lg shadow-lg overflow-hidden"
               >
-                <div className="flex w-[40%] min-w-0 shrink-0 items-center justify-center">
+                <div className="flex w-[40%] aspect-square overflow-hidden min-w-0 shrink-0 items-center justify-center">
                   <img
                     src={product.photo}
                     about="burger"

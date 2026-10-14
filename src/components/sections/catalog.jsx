@@ -94,10 +94,10 @@ export default function Catalog() {
                 key={product.productId}
                 className="flex flex-col gap-2 items-center bg-stone rounded-lg shadow-lg overflow-hidden"
               >
-                <div className="w-full aspect-square">
+                <div className="w-full aspect-square overflow-hidden">
                   <img
                     src={product.photo}
-                    about="burger"
+                    alt={product.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
