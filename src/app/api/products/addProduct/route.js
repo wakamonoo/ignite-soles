@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export async function POST(request) {
   try {
-    const { name, price, size, condition, category, url } =
+    const { name, price, size, condition, category, photo } =
       await request.json();
 
     const client = await clientPromise;
@@ -12,12 +12,12 @@ export async function POST(request) {
 
     const newProduct = {
       productId: `product-${uuidv4()}`,
-      name,
-      price,
-      size,
+      name: name.trim(),
+      price: Number(price),
+      size: Number(size),
       condition,
       category,
-      photo: url,
+      photo,
       isAvailable: true,
       createdAt: new Date(),
     };

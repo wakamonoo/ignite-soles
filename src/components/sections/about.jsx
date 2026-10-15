@@ -1,16 +1,11 @@
 "use client";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef } from "react";
 import {
   BsClock,
-  BsLightningFill,
-  BsThunderbolt,
-  BsThunderboltFill,
 } from "react-icons/bs";
-import { CgLock } from "react-icons/cg";
 import { LuMapPin } from "react-icons/lu";
-import { TbBurger } from "react-icons/tb";
+import { TbFingerprint } from "react-icons/tb";
 
 export default function About() {
   const mapRef = useRef(null);
@@ -79,8 +74,8 @@ export default function About() {
       className="w-full mt-16 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32"
     >
       <div className="flex items-center gap-2">
-        <BsLightningFill className="text-lg" />
-        <h2 className="text-lg uppercase">Why ignite-soles</h2>
+        <TbFingerprint className="text-2xl shrink-0 text-normal" />
+        <h2 className="text-lg uppercase">Why ignite soles</h2>
       </div>
       <div className="mt-8 flex items-center justify-center">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -157,21 +152,25 @@ export default function About() {
             </div>
             <div className="mt-4 w-1/2 flex flex-col gap-2 px-2">
               <div className="flex items-start gap-2">
-                <LuMapPin className="text-2xl text-panel shrink-0" />
+                <div className="flex items-center justify-center rounded-full bg-panel w-8 h-8">
+                  <LuMapPin className="text-lg text-neutral shrink-0" />
+                </div>
                 <div>
                   <p className="text-base text-normal uppercase font-bold leading-tight">
                     Location
                   </p>
-                  <span className="text-sm text-muted">Libon, Albay</span>
+                  <span className="text-sm text-normal">Libon, Albay</span>
                 </div>
               </div>
               <div className="flex items-start gap-2">
-                <BsClock className="text-2xl text-panel shrink-0" />
+                <div className="flex items-center justify-center rounded-full bg-panel w-8 h-8">
+                  <BsClock className="text-lg text-neutral shrink-0" />
+                </div>
                 <div>
                   <p className="text-base text-normal uppercase font-bold leading-tight">
                     Open Daily
                   </p>
-                  <span className="text-sm text-muted">7 Days a Week</span>
+                  <span className="text-sm text-normal">7 Days a Week</span>
                 </div>
               </div>
             </div>

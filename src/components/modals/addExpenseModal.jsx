@@ -1,11 +1,8 @@
 import { MdClose } from "react-icons/md";
-import { RiImage2Fill } from "react-icons/ri";
 import { useContext, useEffect, useRef, useState } from "react";
-import ActionButton from "../buttons/actionButton";
 import Swal from "sweetalert2";
 import RegularButton from "../buttons/regularButton";
 import { LoaderContext } from "@/context/loaderContext";
-import { ProductContext } from "@/context/productContext";
 import { ExpenseContext } from "@/context/expenseContext";
 
 export default function AddExpenseModal({ setShowAddExpenseModal }) {

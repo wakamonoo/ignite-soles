@@ -1,20 +1,14 @@
 "use client";
 import { auth } from "@/lib/firebase/config";
-import { MdClose } from "react-icons/md";
 import Logo from "@/assets/main_logo.png";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
-import { useContext } from "react";
-import { UserContext } from "@/context/userContext";
 import { googleSignUp } from "@/lib/firebase/auth";
 import Swal from "sweetalert2";
-import { LuLogOut } from "react-icons/lu";
-import ActionButton from "@/components/buttons/actionButton";
 import { useRouter } from "next/navigation";
 import RegularButton from "@/components/buttons/regularButton";
 
 export default function Login() {
-  const { setShowSignInModal, isLogged, fetchUser } = useContext(UserContext);
   const router = useRouter();
 
   const handleSignIn = async () => {

@@ -18,13 +18,11 @@ export default function Page() {
   return (
     <div>
       <Navbar />
-      <div>
-        <Hero />
-        <Featured />
-        <Catalog />
-        <About />
-        <Footer />
-      </div>
+      <Hero />
+      <Featured />
+      <Catalog />
+      <About />
+      <Footer />
     </div>
   );
 }

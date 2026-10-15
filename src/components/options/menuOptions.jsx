@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import MenuButton from "../buttons/menuButton";
 import { NavigationContext } from "@/context/navigationContext";
@@ -8,7 +8,7 @@ export default function MenuOptions({
   setShowMenuOptions,
   menuOptionsButtonRef,
 }) {
-  const { handleFeaturedClick, handleAllItemsClick, handleAboutClick } =
+  const { handleFeaturedClick, handleCatalogClick, handleAboutClick } =
     useContext(NavigationContext);
   const divRef = useRef(null);
   const router = useRouter();
@@ -41,9 +41,9 @@ export default function MenuOptions({
             Featured
           </p>
         </MenuButton>
-        <MenuButton onClick={handleAllItemsClick}>
+        <MenuButton onClick={handleCatalogClick}>
           <p className="text-sm uppercase font-tall text-normal font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent) whitespace-nowrap">
-            All Shoes
+            Catalog
           </p>
         </MenuButton>
         <MenuButton onClick={handleAboutClick}>

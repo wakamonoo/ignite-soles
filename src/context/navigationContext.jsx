@@ -1,13 +1,8 @@
 "use client";
 import {
   createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
   useContext,
-  useState,
 } from "react";
-import { useLoader } from "./loaderContext";
 import { usePathname, useRouter } from "next/navigation";
 import { ProductContext } from "./productContext";
 import { LoaderContext } from "./loaderContext";
@@ -47,7 +42,7 @@ export const NavigationProvider = ({ children }) => {
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handleAllItemsClick = () => {
+  const handleCatalogClick = () => {
     document
       .getElementById("all")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -90,7 +85,7 @@ export const NavigationProvider = ({ children }) => {
       value={{
         handleHomeClick,
         handleFeaturedClick,
-        handleAllItemsClick,
+        handleCatalogClick,
         handleAboutClick,
         handleMessengerInquiry,
       }}

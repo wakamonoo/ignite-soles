@@ -1,13 +1,11 @@
 "use client";
-import Shoe from "@/assets/shoe.jpg";
 import { ProductContext } from "@/context/productContext";
 import { useContext, useState } from "react";
-import { TbShoe, TbShoeOff } from "react-icons/tb";
+import { TbShoeOff } from "react-icons/tb";
 import RegularButton from "../buttons/regularButton";
-import { BsDot, BsMessenger } from "react-icons/bs";
-import { GoDot, GoDotFill } from "react-icons/go";
-import { FaRegStar, FaShoePrints } from "react-icons/fa6";
-import { PiEmpty } from "react-icons/pi";
+import { BsMessenger } from "react-icons/bs";
+import {  GoDotFill } from "react-icons/go";
+import { PiSneakerDuotone } from "react-icons/pi";
 import ProductCardLoader from "../loaders/productCardLoader";
 import { NavigationContext } from "@/context/navigationContext";
 
@@ -41,8 +39,8 @@ export default function Catalog() {
       className="w-full bg-second mt-16 p-2 sm:p-4 md:p-8 lg:px-16 xl:px-32"
     >
       <div className="flex items-center gap-2">
-        <TbShoe className="text-lg text-neutral" />
-        <h2 className="text-lg uppercase text-neutral">All Shoes</h2>
+        <PiSneakerDuotone className="text-2xl shrink-0 text-neutral" />
+        <h2 className="text-lg uppercase text-neutral">Catalog</h2>
       </div>
       <div className="mt-8 flex justify-center">
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2 max-w-4xl w-full">

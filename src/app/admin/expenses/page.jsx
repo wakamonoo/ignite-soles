@@ -3,11 +3,9 @@ import AdminGuard from "@/components/guard/adminGuard";
 import ExpenseCard from "@/components/layout/expenses/expenceCard";
 import ExpenseCardLoader from "@/components/loaders/expenseCardLoader";
 import { ExpenseContext } from "@/context/expenseContext";
-
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { BiChevronLeft } from "react-icons/bi";
-import { FaPencil, FaTrash } from "react-icons/fa6";
 import { TbReceiptOff } from "react-icons/tb";
 
 export default function Expenses() {

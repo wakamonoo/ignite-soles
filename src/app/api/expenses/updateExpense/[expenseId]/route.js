@@ -12,7 +12,7 @@ export async function PUT(request, { params }) {
     const updatedExpense = {
       name: name.trim(),
       amount: Number(amount),
-      note,
+      note: note?.trim() || "",
       date,
       lastUpdatedAt: new Date(),
     };

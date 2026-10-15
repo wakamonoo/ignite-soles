@@ -1,27 +1,22 @@
 "use client";
 import AdminGuard from "@/components/guard/adminGuard";
 import AddProductModal from "@/components/modals/addProductModal";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import RegularButton from "@/components/buttons/regularButton";
 import { CgAdd } from "react-icons/cg";
 import {
   BiCheckboxChecked,
   BiCheckCircle,
-  BiCheckDouble,
   BiMoneyWithdraw,
-  BiReceipt,
   BiShoppingBag,
   BiWalletAlt,
 } from "react-icons/bi";
-import { BsBox, BsMessenger, BsReceiptCutoff } from "react-icons/bs";
+import { BsBox } from "react-icons/bs";
 import { ProductContext } from "@/context/productContext";
-import { FcPicture } from "react-icons/fc";
-import { SlPicture } from "react-icons/sl";
 import { GoDotFill } from "react-icons/go";
 import Swal from "sweetalert2";
 import { LoaderContext } from "@/context/loaderContext";
-import { NavigationContext } from "@/context/navigationContext";
 import { useRouter } from "next/navigation";
 import {
   FaMoneyBillTransfer,
@@ -35,7 +30,6 @@ import ProductCardLoader from "@/components/loaders/productCardLoader";
 import { TbReceiptOff, TbShoeOff } from "react-icons/tb";
 import AddExpenseModal from "@/components/modals/addExpenseModal";
 import CountUp from "react-countup";
-import { format, parseISO } from "date-fns";
 import { ExpenseContext } from "@/context/expenseContext";
 import AdminNavbar from "@/components/layout/essentials/adminNavbar";
 import ExpenseCard from "@/components/layout/expenses/expenceCard";

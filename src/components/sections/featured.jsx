@@ -1,16 +1,12 @@
 "use client";
-import { GiCrown, GiFlamedLeaf, GiSonicShoes } from "react-icons/gi";
-import { FaBox, FaCrown, FaRegStar, FaShoePrints } from "react-icons/fa6";
-import RegularButton from "../buttons/regularButton";
+import { FaBox, FaRegStar, FaShoePrints } from "react-icons/fa6";
 import { BsMessenger } from "react-icons/bs";
 import { useContext, useEffect, useState } from "react";
 import ActionButton from "../buttons/actionButton";
-import { GoDotFill } from "react-icons/go";
 import { BiCheckCircle } from "react-icons/bi";
-import { PiEmpty } from "react-icons/pi";
 import FeaturedProductCardLoader from "../loaders/featuredProductCardLoader";
-import { ProductContext } from "@/context/productContext";
 import { NavigationContext } from "@/context/navigationContext";
+import { TbFlame } from "react-icons/tb";
 
 export default function Featured() {
   const { handleMessengerInquiry } = useContext(NavigationContext);
@@ -41,7 +37,7 @@ export default function Featured() {
       className="w-full mt-16 p-2 sm:px-4 md:px-8 lg:px-16 xl:px-32"
     >
       <div className="flex items-center gap-2">
-        <GiFlamedLeaf className="text-lg" />
+        <TbFlame className="text-2xl shrink-0 text-normal" />
         <h2 className="text-lg uppercase">Featured</h2>
       </div>
 

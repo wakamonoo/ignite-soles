@@ -4,10 +4,9 @@ import RegularButton from "../buttons/regularButton";
 import { BiChevronRight } from "react-icons/bi";
 import { useContext } from "react";
 import { NavigationContext } from "@/context/navigationContext";
-import ActionButton from "../buttons/actionButton";
 
 export default function Hero() {
-  const { handleAllItemsClick } = useContext(NavigationContext);
+  const { handleCatalogClick } = useContext(NavigationContext);
 
   return (
     <div className="pt-24 bg-second w-full grid grid-cols-1 md:grid-cols-2 overflow-x-clip items-center justify-center gap-2">
@@ -20,7 +19,7 @@ export default function Hero() {
           Find Your Stride. Define Your Style
         </p>
         <div className="mt-4 w-fit">
-          <RegularButton onClick={handleAllItemsClick}>
+          <RegularButton onClick={handleCatalogClick}>
             <p className="text-base uppercase text-normal font-heading transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
               Explore the collection
             </p>

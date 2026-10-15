@@ -11,9 +11,9 @@ export async function POST(request) {
 
     const newExpense = {
       expenseId: `expense-${uuidv4()}`,
-      name,
+      name: name.trim(),
       amount: Number(amount),
-      note,
+      note: note?.trim() || "",
       date,
       createdAt: new Date(),
     };

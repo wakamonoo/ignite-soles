@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Logo from "@/assets/main_logo.png";
-import { FcContacts } from "react-icons/fc";
-import { GrContact, GrRestaurant } from "react-icons/gr";
 import { FiMail, FiPhone, FiStar } from "react-icons/fi";
-import { BiBookAdd, BiChevronRight, BiRestaurant } from "react-icons/bi";
-import { FaFacebook, FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
-import RegularButton from "../buttons/regularButton";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 import { BsMessenger } from "react-icons/bs";
 import ActionButton from "../buttons/actionButton";
 import { useContext } from "react";
@@ -15,7 +11,7 @@ export default function Footer() {
   const {
     handleHomeClick,
     handleFeaturedClick,
-    handleAllItemsClick,
+    handleCatalogClick,
     handleAboutClick,
   } = useContext(NavigationContext);
 
@@ -34,7 +30,7 @@ export default function Footer() {
                 className="w-full h-full object-contain"
               />
             </button>
-            <p className="text-sm text-muted">Stay Unrivaled</p>
+            <p className="text-sm text-neutral">Stay Unrivaled</p>
           </div>
           <div className="flex flex-wrap gap-y-2 gap-x-4">
             <button
@@ -46,11 +42,11 @@ export default function Footer() {
               </p>
             </button>
             <button
-              onClick={handleAllItemsClick}
+              onClick={handleCatalogClick}
               className="cursor-pointer group"
             >
               <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
-                All Shoes
+                Catalog
               </p>
             </button>
             <button onClick={handleAboutClick} className="cursor-pointer group">
@@ -144,7 +140,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full h-px bg-accent my-4" />
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <p className="text-xs text-muted">© 2026 ignite soles</p>
         <a
           href="https://wakamonoo.site"
@@ -152,7 +148,11 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="cursor-pointer"
         >
-          <p className="text-xs text-muted">a wakamonoo creation</p>
+          <button className="cursor-pointer bg-[#3b2f2f] border border-[#ffeccf] group transition-all duration-200 hover:bg-[#ffeccf] active:bg-[#ffeccf] px-4 py-2 rounded-full">
+            <p className="text-xs font-semibold text-[#ffeccf] transition-all duration-200 group-hover:text-[#3b2f2f] group-active:text-[#3b2f2f]">
+              a wakamonoo creation
+            </p>
+          </button>
         </a>
       </div>
     </div>

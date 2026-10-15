@@ -11,7 +11,7 @@ export async function PUT(request, { params }) {
     const db = client.db(mongodb);
 
     const updatedProduct = {
-      name,
+      name: name.trim(),
       price: Number(price),
       size: Number(size),
       condition,

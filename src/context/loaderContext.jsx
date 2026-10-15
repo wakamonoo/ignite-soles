@@ -1,9 +1,9 @@
 "use client";
 import {
   createContext,
-  
   useState,
 } from "react";
+
 import MainLoader from "@/components/loaders/mainLoader";
 
 export const LoaderContext = createContext();

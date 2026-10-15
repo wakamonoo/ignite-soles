@@ -1,7 +1,6 @@
 import { MdClose } from "react-icons/md";
 import { RiImage2Fill } from "react-icons/ri";
-import { useContext, useEffect, useRef, useState } from "react";
-import ActionButton from "../buttons/actionButton";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import RegularButton from "../buttons/regularButton";
 import { LoaderContext } from "@/context/loaderContext";

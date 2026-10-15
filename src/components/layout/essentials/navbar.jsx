@@ -1,14 +1,11 @@
 "use client";
 import Image from "next/image";
 import Logo from "@/assets/main_logo.png";
-import { LuShoppingBasket } from "react-icons/lu";
-import { TbBurger } from "react-icons/tb";
 import { useContext, useRef, useState } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import MenuOptions from "@/components/options/menuOptions";
 import ActionButton from "@/components/buttons/actionButton";
 import { BsMessenger } from "react-icons/bs";
-import RegularButton from "@/components/buttons/regularButton";
 import { NavigationContext } from "@/context/navigationContext";
 
 export default function Navbar() {
@@ -16,7 +13,7 @@ export default function Navbar() {
   const {
     handleHomeClick,
     handleFeaturedClick,
-    handleAllItemsClick,
+    handleCatalogClick,
     handleAboutClick,
   } = useContext(NavigationContext);
   const menuOptionsButtonRef = useRef(null);
@@ -33,9 +30,9 @@ export default function Navbar() {
             Featured
           </p>
         </button>
-        <button onClick={handleAllItemsClick} className="cursor-pointer group">
+        <button onClick={handleCatalogClick} className="cursor-pointer group">
           <p className="text-sm uppercase font-tall text-neutral font-semibold transition-all duration-200 group-hover:text-(--color-accent) group-active:text-(--color-accent)">
-            All Shoes
+            Catalog
           </p>
         </button>
         <button onClick={handleAboutClick} className="cursor-pointer group">
